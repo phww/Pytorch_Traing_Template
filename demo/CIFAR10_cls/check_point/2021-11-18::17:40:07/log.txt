@@ -1,0 +1,2124 @@
+2021-11-18::17-40-08
+=============== args ===============
+epochs:75
+batch_size:200
+init_lr:0.001
+=============== template config ===============
+model_list:[ResNet(
+  (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+  (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): ReLU(inplace=True)
+  (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+  (layer1): Sequential(
+    (0): Bottleneck(
+      (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (downsample): Sequential(
+        (0): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): Bottleneck(
+      (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (2): Bottleneck(
+      (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+  )
+  (layer2): Sequential(
+    (0): Bottleneck(
+      (conv1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (downsample): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): Bottleneck(
+      (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (2): Bottleneck(
+      (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (3): Bottleneck(
+      (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+  )
+  (layer3): Sequential(
+    (0): Bottleneck(
+      (conv1): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (downsample): Sequential(
+        (0): Conv2d(512, 1024, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (2): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (3): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (4): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (5): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (6): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (7): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (8): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (9): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (10): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (11): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (12): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (13): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (14): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (15): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (16): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (17): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (18): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (19): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (20): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (21): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (22): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+  )
+  (layer4): Sequential(
+    (0): Bottleneck(
+      (conv1): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (downsample): Sequential(
+        (0): Conv2d(1024, 2048, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): Bottleneck(
+      (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (2): Bottleneck(
+      (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+  )
+  (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+  (fc): Linear(in_features=2048, out_features=1000, bias=True)
+)]
+optimizer_list:[Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    initial_lr: 0.001
+    lr: 0.001
+    weight_decay: 0
+)]
+criterion:CrossEntropyLoss()
+eval_loader:<torch.utils.data.dataloader.DataLoader object at 0x7f6014a06700>
+ckpt_dir:./check_point/2021-11-18::17:40:07
+device:cuda
+lr_scheduler_list:[<torch.optim.lr_scheduler.CosineAnnealingLR object at 0x7f5fbfa8cca0>]
+lr_scheduler_type:annealing
+warm_up_epoch:5
+warm_up_mode:exponential
+warm_up_scheduler_list:[<template.WarmUpLR object at 0x7f5fbfa8cc70>]
+log_per_step:25
+global_step:0
+global_step_eval:0
+epoch:1
+=============== model info ===============
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1           [32, 64, 32, 32]           9,408
+       BatchNorm2d-2           [32, 64, 32, 32]             128
+              ReLU-3           [32, 64, 32, 32]               0
+         MaxPool2d-4           [32, 64, 16, 16]               0
+            Conv2d-5           [32, 64, 16, 16]           4,096
+       BatchNorm2d-6           [32, 64, 16, 16]             128
+              ReLU-7           [32, 64, 16, 16]               0
+            Conv2d-8           [32, 64, 16, 16]          36,864
+       BatchNorm2d-9           [32, 64, 16, 16]             128
+             ReLU-10           [32, 64, 16, 16]               0
+           Conv2d-11          [32, 256, 16, 16]          16,384
+      BatchNorm2d-12          [32, 256, 16, 16]             512
+           Conv2d-13          [32, 256, 16, 16]          16,384
+      BatchNorm2d-14          [32, 256, 16, 16]             512
+             ReLU-15          [32, 256, 16, 16]               0
+       Bottleneck-16          [32, 256, 16, 16]               0
+           Conv2d-17           [32, 64, 16, 16]          16,384
+      BatchNorm2d-18           [32, 64, 16, 16]             128
+             ReLU-19           [32, 64, 16, 16]               0
+           Conv2d-20           [32, 64, 16, 16]          36,864
+      BatchNorm2d-21           [32, 64, 16, 16]             128
+             ReLU-22           [32, 64, 16, 16]               0
+           Conv2d-23          [32, 256, 16, 16]          16,384
+      BatchNorm2d-24          [32, 256, 16, 16]             512
+             ReLU-25          [32, 256, 16, 16]               0
+       Bottleneck-26          [32, 256, 16, 16]               0
+           Conv2d-27           [32, 64, 16, 16]          16,384
+      BatchNorm2d-28           [32, 64, 16, 16]             128
+             ReLU-29           [32, 64, 16, 16]               0
+           Conv2d-30           [32, 64, 16, 16]          36,864
+      BatchNorm2d-31           [32, 64, 16, 16]             128
+             ReLU-32           [32, 64, 16, 16]               0
+           Conv2d-33          [32, 256, 16, 16]          16,384
+      BatchNorm2d-34          [32, 256, 16, 16]             512
+             ReLU-35          [32, 256, 16, 16]               0
+       Bottleneck-36          [32, 256, 16, 16]               0
+           Conv2d-37          [32, 128, 16, 16]          32,768
+      BatchNorm2d-38          [32, 128, 16, 16]             256
+             ReLU-39          [32, 128, 16, 16]               0
+           Conv2d-40            [32, 128, 8, 8]         147,456
+      BatchNorm2d-41            [32, 128, 8, 8]             256
+             ReLU-42            [32, 128, 8, 8]               0
+           Conv2d-43            [32, 512, 8, 8]          65,536
+      BatchNorm2d-44            [32, 512, 8, 8]           1,024
+           Conv2d-45            [32, 512, 8, 8]         131,072
+      BatchNorm2d-46            [32, 512, 8, 8]           1,024
+             ReLU-47            [32, 512, 8, 8]               0
+       Bottleneck-48            [32, 512, 8, 8]               0
+           Conv2d-49            [32, 128, 8, 8]          65,536
+      BatchNorm2d-50            [32, 128, 8, 8]             256
+             ReLU-51            [32, 128, 8, 8]               0
+           Conv2d-52            [32, 128, 8, 8]         147,456
+      BatchNorm2d-53            [32, 128, 8, 8]             256
+             ReLU-54            [32, 128, 8, 8]               0
+           Conv2d-55            [32, 512, 8, 8]          65,536
+      BatchNorm2d-56            [32, 512, 8, 8]           1,024
+             ReLU-57            [32, 512, 8, 8]               0
+       Bottleneck-58            [32, 512, 8, 8]               0
+           Conv2d-59            [32, 128, 8, 8]          65,536
+      BatchNorm2d-60            [32, 128, 8, 8]             256
+             ReLU-61            [32, 128, 8, 8]               0
+           Conv2d-62            [32, 128, 8, 8]         147,456
+      BatchNorm2d-63            [32, 128, 8, 8]             256
+             ReLU-64            [32, 128, 8, 8]               0
+           Conv2d-65            [32, 512, 8, 8]          65,536
+      BatchNorm2d-66            [32, 512, 8, 8]           1,024
+             ReLU-67            [32, 512, 8, 8]               0
+       Bottleneck-68            [32, 512, 8, 8]               0
+           Conv2d-69            [32, 128, 8, 8]          65,536
+      BatchNorm2d-70            [32, 128, 8, 8]             256
+             ReLU-71            [32, 128, 8, 8]               0
+           Conv2d-72            [32, 128, 8, 8]         147,456
+      BatchNorm2d-73            [32, 128, 8, 8]             256
+             ReLU-74            [32, 128, 8, 8]               0
+           Conv2d-75            [32, 512, 8, 8]          65,536
+      BatchNorm2d-76            [32, 512, 8, 8]           1,024
+             ReLU-77            [32, 512, 8, 8]               0
+       Bottleneck-78            [32, 512, 8, 8]               0
+           Conv2d-79            [32, 256, 8, 8]         131,072
+      BatchNorm2d-80            [32, 256, 8, 8]             512
+             ReLU-81            [32, 256, 8, 8]               0
+           Conv2d-82            [32, 256, 4, 4]         589,824
+      BatchNorm2d-83            [32, 256, 4, 4]             512
+             ReLU-84            [32, 256, 4, 4]               0
+           Conv2d-85           [32, 1024, 4, 4]         262,144
+      BatchNorm2d-86           [32, 1024, 4, 4]           2,048
+           Conv2d-87           [32, 1024, 4, 4]         524,288
+      BatchNorm2d-88           [32, 1024, 4, 4]           2,048
+             ReLU-89           [32, 1024, 4, 4]               0
+       Bottleneck-90           [32, 1024, 4, 4]               0
+           Conv2d-91            [32, 256, 4, 4]         262,144
+      BatchNorm2d-92            [32, 256, 4, 4]             512
+             ReLU-93            [32, 256, 4, 4]               0
+           Conv2d-94            [32, 256, 4, 4]         589,824
+      BatchNorm2d-95            [32, 256, 4, 4]             512
+             ReLU-96            [32, 256, 4, 4]               0
+           Conv2d-97           [32, 1024, 4, 4]         262,144
+      BatchNorm2d-98           [32, 1024, 4, 4]           2,048
+             ReLU-99           [32, 1024, 4, 4]               0
+      Bottleneck-100           [32, 1024, 4, 4]               0
+          Conv2d-101            [32, 256, 4, 4]         262,144
+     BatchNorm2d-102            [32, 256, 4, 4]             512
+            ReLU-103            [32, 256, 4, 4]               0
+          Conv2d-104            [32, 256, 4, 4]         589,824
+     BatchNorm2d-105            [32, 256, 4, 4]             512
+            ReLU-106            [32, 256, 4, 4]               0
+          Conv2d-107           [32, 1024, 4, 4]         262,144
+     BatchNorm2d-108           [32, 1024, 4, 4]           2,048
+            ReLU-109           [32, 1024, 4, 4]               0
+      Bottleneck-110           [32, 1024, 4, 4]               0
+          Conv2d-111            [32, 256, 4, 4]         262,144
+     BatchNorm2d-112            [32, 256, 4, 4]             512
+            ReLU-113            [32, 256, 4, 4]               0
+          Conv2d-114            [32, 256, 4, 4]         589,824
+     BatchNorm2d-115            [32, 256, 4, 4]             512
+            ReLU-116            [32, 256, 4, 4]               0
+          Conv2d-117           [32, 1024, 4, 4]         262,144
+     BatchNorm2d-118           [32, 1024, 4, 4]           2,048
+            ReLU-119           [32, 1024, 4, 4]               0
+      Bottleneck-120           [32, 1024, 4, 4]               0
+          Conv2d-121            [32, 256, 4, 4]         262,144
+     BatchNorm2d-122            [32, 256, 4, 4]             512
+            ReLU-123            [32, 256, 4, 4]               0
+          Conv2d-124            [32, 256, 4, 4]         589,824
+     BatchNorm2d-125            [32, 256, 4, 4]             512
+            ReLU-126            [32, 256, 4, 4]               0
+          Conv2d-127           [32, 1024, 4, 4]         262,144
+     BatchNorm2d-128           [32, 1024, 4, 4]           2,048
+            ReLU-129           [32, 1024, 4, 4]               0
+      Bottleneck-130           [32, 1024, 4, 4]               0
+          Conv2d-131            [32, 256, 4, 4]         262,144
+     BatchNorm2d-132            [32, 256, 4, 4]             512
+            ReLU-133            [32, 256, 4, 4]               0
+          Conv2d-134            [32, 256, 4, 4]         589,824
+     BatchNorm2d-135            [32, 256, 4, 4]             512
+            ReLU-136            [32, 256, 4, 4]               0
+          Conv2d-137           [32, 1024, 4, 4]         262,144
+     BatchNorm2d-138           [32, 1024, 4, 4]           2,048
+            ReLU-139           [32, 1024, 4, 4]               0
+      Bottleneck-140           [32, 1024, 4, 4]               0
+          Conv2d-141            [32, 256, 4, 4]         262,144
+     BatchNorm2d-142            [32, 256, 4, 4]             512
+            ReLU-143            [32, 256, 4, 4]               0
+          Conv2d-144            [32, 256, 4, 4]         589,824
+     BatchNorm2d-145            [32, 256, 4, 4]             512
+            ReLU-146            [32, 256, 4, 4]               0
+          Conv2d-147           [32, 1024, 4, 4]         262,144
+     BatchNorm2d-148           [32, 1024, 4, 4]           2,048
+            ReLU-149           [32, 1024, 4, 4]               0
+      Bottleneck-150           [32, 1024, 4, 4]               0
+          Conv2d-151            [32, 256, 4, 4]         262,144
+     BatchNorm2d-152            [32, 256, 4, 4]             512
+            ReLU-153            [32, 256, 4, 4]               0
+          Conv2d-154            [32, 256, 4, 4]         589,824
+     BatchNorm2d-155            [32, 256, 4, 4]             512
+            ReLU-156            [32, 256, 4, 4]               0
+          Conv2d-157           [32, 1024, 4, 4]         262,144
+     BatchNorm2d-158           [32, 1024, 4, 4]           2,048
+            ReLU-159           [32, 1024, 4, 4]               0
+      Bottleneck-160           [32, 1024, 4, 4]               0
+          Conv2d-161            [32, 256, 4, 4]         262,144
+     BatchNorm2d-162            [32, 256, 4, 4]             512
+            ReLU-163            [32, 256, 4, 4]               0
+          Conv2d-164            [32, 256, 4, 4]         589,824
+     BatchNorm2d-165            [32, 256, 4, 4]             512
+            ReLU-166            [32, 256, 4, 4]               0
+          Conv2d-167           [32, 1024, 4, 4]         262,144
+     BatchNorm2d-168           [32, 1024, 4, 4]           2,048
+            ReLU-169           [32, 1024, 4, 4]               0
+      Bottleneck-170           [32, 1024, 4, 4]               0
+          Conv2d-171            [32, 256, 4, 4]         262,144
+     BatchNorm2d-172            [32, 256, 4, 4]             512
+            ReLU-173            [32, 256, 4, 4]               0
+          Conv2d-174            [32, 256, 4, 4]         589,824
+     BatchNorm2d-175            [32, 256, 4, 4]             512
+            ReLU-176            [32, 256, 4, 4]               0
+          Conv2d-177           [32, 1024, 4, 4]         262,144
+     BatchNorm2d-178           [32, 1024, 4, 4]           2,048
+            ReLU-179           [32, 1024, 4, 4]               0
+      Bottleneck-180           [32, 1024, 4, 4]               0
+          Conv2d-181            [32, 256, 4, 4]         262,144
+     BatchNorm2d-182            [32, 256, 4, 4]             512
+            ReLU-183            [32, 256, 4, 4]               0
+          Conv2d-184            [32, 256, 4, 4]         589,824
+     BatchNorm2d-185            [32, 256, 4, 4]             512
+            ReLU-186            [32, 256, 4, 4]               0
+          Conv2d-187           [32, 1024, 4, 4]         262,144
+     BatchNorm2d-188           [32, 1024, 4, 4]           2,048
+            ReLU-189           [32, 1024, 4, 4]               0
+      Bottleneck-190           [32, 1024, 4, 4]               0
+          Conv2d-191            [32, 256, 4, 4]         262,144
+     BatchNorm2d-192            [32, 256, 4, 4]             512
+            ReLU-193            [32, 256, 4, 4]               0
+          Conv2d-194            [32, 256, 4, 4]         589,824
+     BatchNorm2d-195            [32, 256, 4, 4]             512
+            ReLU-196            [32, 256, 4, 4]               0
+          Conv2d-197           [32, 1024, 4, 4]         262,144
+     BatchNorm2d-198           [32, 1024, 4, 4]           2,048
+            ReLU-199           [32, 1024, 4, 4]               0
+      Bottleneck-200           [32, 1024, 4, 4]               0
+          Conv2d-201            [32, 256, 4, 4]         262,144
+     BatchNorm2d-202            [32, 256, 4, 4]             512
+            ReLU-203            [32, 256, 4, 4]               0
+          Conv2d-204            [32, 256, 4, 4]         589,824
+     BatchNorm2d-205            [32, 256, 4, 4]             512
+            ReLU-206            [32, 256, 4, 4]               0
+          Conv2d-207           [32, 1024, 4, 4]         262,144
+     BatchNorm2d-208           [32, 1024, 4, 4]           2,048
+            ReLU-209           [32, 1024, 4, 4]               0
+      Bottleneck-210           [32, 1024, 4, 4]               0
+          Conv2d-211            [32, 256, 4, 4]         262,144
+     BatchNorm2d-212            [32, 256, 4, 4]             512
+            ReLU-213            [32, 256, 4, 4]               0
+          Conv2d-214            [32, 256, 4, 4]         589,824
+     BatchNorm2d-215            [32, 256, 4, 4]             512
+            ReLU-216            [32, 256, 4, 4]               0
+          Conv2d-217           [32, 1024, 4, 4]         262,144
+     BatchNorm2d-218           [32, 1024, 4, 4]           2,048
+            ReLU-219           [32, 1024, 4, 4]               0
+      Bottleneck-220           [32, 1024, 4, 4]               0
+          Conv2d-221            [32, 256, 4, 4]         262,144
+     BatchNorm2d-222            [32, 256, 4, 4]             512
+            ReLU-223            [32, 256, 4, 4]               0
+          Conv2d-224            [32, 256, 4, 4]         589,824
+     BatchNorm2d-225            [32, 256, 4, 4]             512
+            ReLU-226            [32, 256, 4, 4]               0
+          Conv2d-227           [32, 1024, 4, 4]         262,144
+     BatchNorm2d-228           [32, 1024, 4, 4]           2,048
+            ReLU-229           [32, 1024, 4, 4]               0
+      Bottleneck-230           [32, 1024, 4, 4]               0
+          Conv2d-231            [32, 256, 4, 4]         262,144
+     BatchNorm2d-232            [32, 256, 4, 4]             512
+            ReLU-233            [32, 256, 4, 4]               0
+          Conv2d-234            [32, 256, 4, 4]         589,824
+     BatchNorm2d-235            [32, 256, 4, 4]             512
+            ReLU-236            [32, 256, 4, 4]               0
+          Conv2d-237           [32, 1024, 4, 4]         262,144
+     BatchNorm2d-238           [32, 1024, 4, 4]           2,048
+            ReLU-239           [32, 1024, 4, 4]               0
+      Bottleneck-240           [32, 1024, 4, 4]               0
+          Conv2d-241            [32, 256, 4, 4]         262,144
+     BatchNorm2d-242            [32, 256, 4, 4]             512
+            ReLU-243            [32, 256, 4, 4]               0
+          Conv2d-244            [32, 256, 4, 4]         589,824
+     BatchNorm2d-245            [32, 256, 4, 4]             512
+            ReLU-246            [32, 256, 4, 4]               0
+          Conv2d-247           [32, 1024, 4, 4]         262,144
+     BatchNorm2d-248           [32, 1024, 4, 4]           2,048
+            ReLU-249           [32, 1024, 4, 4]               0
+      Bottleneck-250           [32, 1024, 4, 4]               0
+          Conv2d-251            [32, 256, 4, 4]         262,144
+     BatchNorm2d-252            [32, 256, 4, 4]             512
+            ReLU-253            [32, 256, 4, 4]               0
+          Conv2d-254            [32, 256, 4, 4]         589,824
+     BatchNorm2d-255            [32, 256, 4, 4]             512
+            ReLU-256            [32, 256, 4, 4]               0
+          Conv2d-257           [32, 1024, 4, 4]         262,144
+     BatchNorm2d-258           [32, 1024, 4, 4]           2,048
+            ReLU-259           [32, 1024, 4, 4]               0
+      Bottleneck-260           [32, 1024, 4, 4]               0
+          Conv2d-261            [32, 256, 4, 4]         262,144
+     BatchNorm2d-262            [32, 256, 4, 4]             512
+            ReLU-263            [32, 256, 4, 4]               0
+          Conv2d-264            [32, 256, 4, 4]         589,824
+     BatchNorm2d-265            [32, 256, 4, 4]             512
+            ReLU-266            [32, 256, 4, 4]               0
+          Conv2d-267           [32, 1024, 4, 4]         262,144
+     BatchNorm2d-268           [32, 1024, 4, 4]           2,048
+            ReLU-269           [32, 1024, 4, 4]               0
+      Bottleneck-270           [32, 1024, 4, 4]               0
+          Conv2d-271            [32, 256, 4, 4]         262,144
+     BatchNorm2d-272            [32, 256, 4, 4]             512
+            ReLU-273            [32, 256, 4, 4]               0
+          Conv2d-274            [32, 256, 4, 4]         589,824
+     BatchNorm2d-275            [32, 256, 4, 4]             512
+            ReLU-276            [32, 256, 4, 4]               0
+          Conv2d-277           [32, 1024, 4, 4]         262,144
+     BatchNorm2d-278           [32, 1024, 4, 4]           2,048
+            ReLU-279           [32, 1024, 4, 4]               0
+      Bottleneck-280           [32, 1024, 4, 4]               0
+          Conv2d-281            [32, 256, 4, 4]         262,144
+     BatchNorm2d-282            [32, 256, 4, 4]             512
+            ReLU-283            [32, 256, 4, 4]               0
+          Conv2d-284            [32, 256, 4, 4]         589,824
+     BatchNorm2d-285            [32, 256, 4, 4]             512
+            ReLU-286            [32, 256, 4, 4]               0
+          Conv2d-287           [32, 1024, 4, 4]         262,144
+     BatchNorm2d-288           [32, 1024, 4, 4]           2,048
+            ReLU-289           [32, 1024, 4, 4]               0
+      Bottleneck-290           [32, 1024, 4, 4]               0
+          Conv2d-291            [32, 256, 4, 4]         262,144
+     BatchNorm2d-292            [32, 256, 4, 4]             512
+            ReLU-293            [32, 256, 4, 4]               0
+          Conv2d-294            [32, 256, 4, 4]         589,824
+     BatchNorm2d-295            [32, 256, 4, 4]             512
+            ReLU-296            [32, 256, 4, 4]               0
+          Conv2d-297           [32, 1024, 4, 4]         262,144
+     BatchNorm2d-298           [32, 1024, 4, 4]           2,048
+            ReLU-299           [32, 1024, 4, 4]               0
+      Bottleneck-300           [32, 1024, 4, 4]               0
+          Conv2d-301            [32, 256, 4, 4]         262,144
+     BatchNorm2d-302            [32, 256, 4, 4]             512
+            ReLU-303            [32, 256, 4, 4]               0
+          Conv2d-304            [32, 256, 4, 4]         589,824
+     BatchNorm2d-305            [32, 256, 4, 4]             512
+            ReLU-306            [32, 256, 4, 4]               0
+          Conv2d-307           [32, 1024, 4, 4]         262,144
+     BatchNorm2d-308           [32, 1024, 4, 4]           2,048
+            ReLU-309           [32, 1024, 4, 4]               0
+      Bottleneck-310           [32, 1024, 4, 4]               0
+          Conv2d-311            [32, 512, 4, 4]         524,288
+     BatchNorm2d-312            [32, 512, 4, 4]           1,024
+            ReLU-313            [32, 512, 4, 4]               0
+          Conv2d-314            [32, 512, 2, 2]       2,359,296
+     BatchNorm2d-315            [32, 512, 2, 2]           1,024
+            ReLU-316            [32, 512, 2, 2]               0
+          Conv2d-317           [32, 2048, 2, 2]       1,048,576
+     BatchNorm2d-318           [32, 2048, 2, 2]           4,096
+          Conv2d-319           [32, 2048, 2, 2]       2,097,152
+     BatchNorm2d-320           [32, 2048, 2, 2]           4,096
+            ReLU-321           [32, 2048, 2, 2]               0
+      Bottleneck-322           [32, 2048, 2, 2]               0
+          Conv2d-323            [32, 512, 2, 2]       1,048,576
+     BatchNorm2d-324            [32, 512, 2, 2]           1,024
+            ReLU-325            [32, 512, 2, 2]               0
+          Conv2d-326            [32, 512, 2, 2]       2,359,296
+     BatchNorm2d-327            [32, 512, 2, 2]           1,024
+            ReLU-328            [32, 512, 2, 2]               0
+          Conv2d-329           [32, 2048, 2, 2]       1,048,576
+     BatchNorm2d-330           [32, 2048, 2, 2]           4,096
+            ReLU-331           [32, 2048, 2, 2]               0
+      Bottleneck-332           [32, 2048, 2, 2]               0
+          Conv2d-333            [32, 512, 2, 2]       1,048,576
+     BatchNorm2d-334            [32, 512, 2, 2]           1,024
+            ReLU-335            [32, 512, 2, 2]               0
+          Conv2d-336            [32, 512, 2, 2]       2,359,296
+     BatchNorm2d-337            [32, 512, 2, 2]           1,024
+            ReLU-338            [32, 512, 2, 2]               0
+          Conv2d-339           [32, 2048, 2, 2]       1,048,576
+     BatchNorm2d-340           [32, 2048, 2, 2]           4,096
+            ReLU-341           [32, 2048, 2, 2]               0
+      Bottleneck-342           [32, 2048, 2, 2]               0
+AdaptiveAvgPool2d-343           [32, 2048, 1, 1]               0
+          Linear-344                 [32, 1000]       2,049,000
+================================================================
+Total params: 44,549,160
+Trainable params: 44,549,160
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 1.50
+Forward/backward pass size (MB): 1123.24
+Params size (MB): 169.94
+Estimated Total Size (MB): 1294.69
+----------------------------------------------------------------
+None
+*************** epoch:1 ***************
+loss: 7.51049	cur:[0]\[50000]
+tol_loss: 1.40817	cur:[5000]\[50000]
+tol_loss: 1.05562	cur:[10000]\[50000]
+tol_loss: 1.04317	cur:[15000]\[50000]
+tol_loss: 1.01143	cur:[20000]\[50000]
+tol_loss: 0.99326	cur:[25000]\[50000]
+tol_loss: 0.95977	cur:[30000]\[50000]
+tol_loss: 0.96831	cur:[35000]\[50000]
+tol_loss: 0.93719	cur:[40000]\[50000]
+tol_loss: 0.93189	cur:[45000]\[50000]
+tol_loss: 0.88965	cur:[50000]\[50000]
+epoch:1	avg_epoch|tol_loss:1.01985
+Warm UP:	cur epoch[1]/[5]
+Adjusting learning rate of group 0 to 3.9811e-06.
+--------------- Evaluation ---------------
+tol_loss: 0.86408	cur:[5000]\[10000]
+tol_loss: 0.85972	cur:[10000]\[10000]
+epoch:1	avg_epoch_eval|tol_loss:0.86190
+epoch:1	avg_metric|acc:0.37100
+save model state at ./check_point/2021-11-18::17:40:07/best.pth
+*************** epoch:2 ***************
+tol_loss: 0.88281	cur:[5000]\[50000]
+tol_loss: 0.86306	cur:[10000]\[50000]
+tol_loss: 0.86059	cur:[15000]\[50000]
+tol_loss: 0.85534	cur:[20000]\[50000]
+tol_loss: 0.83889	cur:[25000]\[50000]
+tol_loss: 0.84776	cur:[30000]\[50000]
+tol_loss: 0.84183	cur:[35000]\[50000]
+tol_loss: 0.84640	cur:[40000]\[50000]
+tol_loss: 0.83741	cur:[45000]\[50000]
+tol_loss: 0.84699	cur:[50000]\[50000]
+epoch:2	avg_epoch|tol_loss:0.85211
+Warm UP:	cur epoch[2]/[5]
+Adjusting learning rate of group 0 to 1.5849e-05.
+--------------- Evaluation ---------------
+tol_loss: 0.82578	cur:[5000]\[10000]
+tol_loss: 0.84139	cur:[10000]\[10000]
+epoch:2	avg_epoch_eval|tol_loss:0.83359
+epoch:2	avg_metric|acc:0.39410
+save model state at ./check_point/2021-11-18::17:40:07/best.pth
+*************** epoch:3 ***************
+tol_loss: 0.82776	cur:[5000]\[50000]
+tol_loss: 0.84209	cur:[10000]\[50000]
+tol_loss: 0.83669	cur:[15000]\[50000]
+tol_loss: 0.82938	cur:[20000]\[50000]
+tol_loss: 0.83147	cur:[25000]\[50000]
+tol_loss: 0.81789	cur:[30000]\[50000]
+tol_loss: 0.81679	cur:[35000]\[50000]
+tol_loss: 0.82268	cur:[40000]\[50000]
+tol_loss: 0.83003	cur:[45000]\[50000]
+tol_loss: 0.82577	cur:[50000]\[50000]
+epoch:3	avg_epoch|tol_loss:0.82805
+Warm UP:	cur epoch[3]/[5]
+Adjusting learning rate of group 0 to 6.3096e-05.
+--------------- Evaluation ---------------
+tol_loss: 0.82259	cur:[5000]\[10000]
+tol_loss: 0.81919	cur:[10000]\[10000]
+epoch:3	avg_epoch_eval|tol_loss:0.82089
+epoch:3	avg_metric|acc:0.40530
+save model state at ./check_point/2021-11-18::17:40:07/best.pth
+*************** epoch:4 ***************
+tol_loss: 0.83014	cur:[5000]\[50000]
+tol_loss: 0.82162	cur:[10000]\[50000]
+tol_loss: 0.81559	cur:[15000]\[50000]
+tol_loss: 0.81066	cur:[20000]\[50000]
+tol_loss: 0.82436	cur:[25000]\[50000]
+tol_loss: 0.80335	cur:[30000]\[50000]
+tol_loss: 0.80645	cur:[35000]\[50000]
+tol_loss: 0.80594	cur:[40000]\[50000]
+tol_loss: 0.81640	cur:[45000]\[50000]
+tol_loss: 0.80204	cur:[50000]\[50000]
+epoch:4	avg_epoch|tol_loss:0.81365
+Warm UP:	cur epoch[4]/[5]
+Adjusting learning rate of group 0 to 2.5119e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.80081	cur:[5000]\[10000]
+tol_loss: 0.79783	cur:[10000]\[10000]
+epoch:4	avg_epoch_eval|tol_loss:0.79932
+epoch:4	avg_metric|acc:0.43290
+save model state at ./check_point/2021-11-18::17:40:07/best.pth
+*************** epoch:5 ***************
+tol_loss: 0.79970	cur:[5000]\[50000]
+tol_loss: 0.81102	cur:[10000]\[50000]
+tol_loss: 0.80297	cur:[15000]\[50000]
+tol_loss: 0.80545	cur:[20000]\[50000]
+tol_loss: 0.80248	cur:[25000]\[50000]
+tol_loss: 0.79480	cur:[30000]\[50000]
+tol_loss: 0.78272	cur:[35000]\[50000]
+tol_loss: 0.79843	cur:[40000]\[50000]
+tol_loss: 0.81256	cur:[45000]\[50000]
+tol_loss: 0.79075	cur:[50000]\[50000]
+epoch:5	avg_epoch|tol_loss:0.80009
+Warm UP:	cur epoch[5]/[5]
+Adjusting learning rate of group 0 to 1.0000e-03.
+--------------- Evaluation ---------------
+tol_loss: 0.78294	cur:[5000]\[10000]
+tol_loss: 0.78523	cur:[10000]\[10000]
+epoch:5	avg_epoch_eval|tol_loss:0.78408
+epoch:5	avg_metric|acc:0.43340
+save model state at ./check_point/2021-11-18::17:40:07/best.pth
+save model state at ./check_point/2021-11-18::17:40:07/epoch5.pth
+*************** epoch:6 ***************
+tol_loss: 0.84840	cur:[5000]\[50000]
+tol_loss: 0.89043	cur:[10000]\[50000]
+tol_loss: 0.86639	cur:[15000]\[50000]
+tol_loss: 0.86682	cur:[20000]\[50000]
+tol_loss: 0.83368	cur:[25000]\[50000]
+tol_loss: 0.92842	cur:[30000]\[50000]
+tol_loss: 0.93275	cur:[35000]\[50000]
+tol_loss: 0.92702	cur:[40000]\[50000]
+tol_loss: 0.88041	cur:[45000]\[50000]
+tol_loss: 0.87980	cur:[50000]\[50000]
+epoch:6	avg_epoch|tol_loss:0.88541
+Adjusting learning rate of group 0 to 9.8907e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.81729	cur:[5000]\[10000]
+tol_loss: 0.88655	cur:[10000]\[10000]
+epoch:6	avg_epoch_eval|tol_loss:0.85192
+epoch:6	avg_metric|acc:0.43150
+*************** epoch:7 ***************
+tol_loss: 0.89148	cur:[5000]\[50000]
+tol_loss: 0.88800	cur:[10000]\[50000]
+tol_loss: 0.90044	cur:[15000]\[50000]
+tol_loss: 0.97139	cur:[20000]\[50000]
+tol_loss: 0.95272	cur:[25000]\[50000]
+tol_loss: 0.97516	cur:[30000]\[50000]
+tol_loss: 0.93848	cur:[35000]\[50000]
+tol_loss: 0.98607	cur:[40000]\[50000]
+tol_loss: 0.95908	cur:[45000]\[50000]
+tol_loss: 0.91450	cur:[50000]\[50000]
+epoch:7	avg_epoch|tol_loss:0.93773
+Adjusting learning rate of group 0 to 9.5677e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.92280	cur:[5000]\[10000]
+tol_loss: 0.93769	cur:[10000]\[10000]
+epoch:7	avg_epoch_eval|tol_loss:0.93024
+epoch:7	avg_metric|acc:0.35480
+*************** epoch:8 ***************
+tol_loss: 0.94139	cur:[5000]\[50000]
+tol_loss: 0.93111	cur:[10000]\[50000]
+tol_loss: 0.88622	cur:[15000]\[50000]
+tol_loss: 0.88818	cur:[20000]\[50000]
+tol_loss: 0.87424	cur:[25000]\[50000]
+tol_loss: 0.85134	cur:[30000]\[50000]
+tol_loss: 0.80867	cur:[35000]\[50000]
+tol_loss: 0.82995	cur:[40000]\[50000]
+tol_loss: 0.82479	cur:[45000]\[50000]
+tol_loss: 0.81843	cur:[50000]\[50000]
+epoch:8	avg_epoch|tol_loss:0.86543
+Adjusting learning rate of group 0 to 9.0451e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.78744	cur:[5000]\[10000]
+tol_loss: 0.78027	cur:[10000]\[10000]
+epoch:8	avg_epoch_eval|tol_loss:0.78385
+epoch:8	avg_metric|acc:0.44980
+save model state at ./check_point/2021-11-18::17:40:07/best.pth
+*************** epoch:9 ***************
+tol_loss: 0.79881	cur:[5000]\[50000]
+tol_loss: 0.77561	cur:[10000]\[50000]
+tol_loss: 0.80118	cur:[15000]\[50000]
+tol_loss: 0.77860	cur:[20000]\[50000]
+tol_loss: 0.82355	cur:[25000]\[50000]
+tol_loss: 0.79189	cur:[30000]\[50000]
+tol_loss: 0.81177	cur:[35000]\[50000]
+tol_loss: 0.78440	cur:[40000]\[50000]
+tol_loss: 0.75945	cur:[45000]\[50000]
+tol_loss: 0.83072	cur:[50000]\[50000]
+epoch:9	avg_epoch|tol_loss:0.79560
+Adjusting learning rate of group 0 to 8.3457e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.80212	cur:[5000]\[10000]
+tol_loss: 0.80014	cur:[10000]\[10000]
+epoch:9	avg_epoch_eval|tol_loss:0.80113
+epoch:9	avg_metric|acc:0.43850
+*************** epoch:10 ***************
+tol_loss: 0.80191	cur:[5000]\[50000]
+tol_loss: 0.79716	cur:[10000]\[50000]
+tol_loss: 0.78304	cur:[15000]\[50000]
+tol_loss: 0.78405	cur:[20000]\[50000]
+tol_loss: 0.76579	cur:[25000]\[50000]
+tol_loss: 0.78284	cur:[30000]\[50000]
+tol_loss: 0.81403	cur:[35000]\[50000]
+tol_loss: 0.79014	cur:[40000]\[50000]
+tol_loss: 0.79798	cur:[45000]\[50000]
+tol_loss: 0.78397	cur:[50000]\[50000]
+epoch:10	avg_epoch|tol_loss:0.79009
+Adjusting learning rate of group 0 to 7.5000e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.75421	cur:[5000]\[10000]
+tol_loss: 0.75591	cur:[10000]\[10000]
+epoch:10	avg_epoch_eval|tol_loss:0.75506
+epoch:10	avg_metric|acc:0.47490
+save model state at ./check_point/2021-11-18::17:40:07/best.pth
+save model state at ./check_point/2021-11-18::17:40:07/epoch10.pth
+*************** epoch:11 ***************
+tol_loss: 0.74773	cur:[5000]\[50000]
+tol_loss: 0.73849	cur:[10000]\[50000]
+tol_loss: 0.78115	cur:[15000]\[50000]
+tol_loss: 0.76889	cur:[20000]\[50000]
+tol_loss: 0.79378	cur:[25000]\[50000]
+tol_loss: 0.83217	cur:[30000]\[50000]
+tol_loss: 0.78449	cur:[35000]\[50000]
+tol_loss: 0.77578	cur:[40000]\[50000]
+tol_loss: 0.77161	cur:[45000]\[50000]
+tol_loss: 0.77063	cur:[50000]\[50000]
+epoch:11	avg_epoch|tol_loss:0.77647
+Adjusting learning rate of group 0 to 6.5451e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.76657	cur:[5000]\[10000]
+tol_loss: 0.75144	cur:[10000]\[10000]
+epoch:11	avg_epoch_eval|tol_loss:0.75901
+epoch:11	avg_metric|acc:0.45830
+*************** epoch:12 ***************
+tol_loss: 0.81251	cur:[5000]\[50000]
+tol_loss: 0.77609	cur:[10000]\[50000]
+tol_loss: 0.80563	cur:[15000]\[50000]
+tol_loss: 0.81217	cur:[20000]\[50000]
+tol_loss: 0.79214	cur:[25000]\[50000]
+tol_loss: 0.75257	cur:[30000]\[50000]
+tol_loss: 0.74198	cur:[35000]\[50000]
+tol_loss: 0.73942	cur:[40000]\[50000]
+tol_loss: 0.73518	cur:[45000]\[50000]
+tol_loss: 0.73551	cur:[50000]\[50000]
+epoch:12	avg_epoch|tol_loss:0.77032
+Adjusting learning rate of group 0 to 5.5226e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.74011	cur:[5000]\[10000]
+tol_loss: 0.74196	cur:[10000]\[10000]
+epoch:12	avg_epoch_eval|tol_loss:0.74103
+epoch:12	avg_metric|acc:0.47160
+*************** epoch:13 ***************
+tol_loss: 0.72692	cur:[5000]\[50000]
+tol_loss: 0.74781	cur:[10000]\[50000]
+tol_loss: 0.77255	cur:[15000]\[50000]
+tol_loss: 0.75028	cur:[20000]\[50000]
+tol_loss: 0.78745	cur:[25000]\[50000]
+tol_loss: 0.76472	cur:[30000]\[50000]
+tol_loss: 0.91898	cur:[35000]\[50000]
+tol_loss: 0.84701	cur:[40000]\[50000]
+tol_loss: 0.81144	cur:[45000]\[50000]
+tol_loss: 0.80274	cur:[50000]\[50000]
+epoch:13	avg_epoch|tol_loss:0.79299
+Adjusting learning rate of group 0 to 4.4774e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.78551	cur:[5000]\[10000]
+tol_loss: 0.77241	cur:[10000]\[10000]
+epoch:13	avg_epoch_eval|tol_loss:0.77896
+epoch:13	avg_metric|acc:0.44130
+*************** epoch:14 ***************
+tol_loss: 0.76422	cur:[5000]\[50000]
+tol_loss: 0.75393	cur:[10000]\[50000]
+tol_loss: 0.76112	cur:[15000]\[50000]
+tol_loss: 0.74040	cur:[20000]\[50000]
+tol_loss: 0.73988	cur:[25000]\[50000]
+tol_loss: 0.73755	cur:[30000]\[50000]
+tol_loss: 0.73843	cur:[35000]\[50000]
+tol_loss: 0.73146	cur:[40000]\[50000]
+tol_loss: 0.72582	cur:[45000]\[50000]
+tol_loss: 0.72522	cur:[50000]\[50000]
+epoch:14	avg_epoch|tol_loss:0.74180
+Adjusting learning rate of group 0 to 3.4549e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.73044	cur:[5000]\[10000]
+tol_loss: 0.73527	cur:[10000]\[10000]
+epoch:14	avg_epoch_eval|tol_loss:0.73286
+epoch:14	avg_metric|acc:0.49130
+save model state at ./check_point/2021-11-18::17:40:07/best.pth
+*************** epoch:15 ***************
+tol_loss: 0.71099	cur:[5000]\[50000]
+tol_loss: 0.69782	cur:[10000]\[50000]
+tol_loss: 0.71088	cur:[15000]\[50000]
+tol_loss: 0.71395	cur:[20000]\[50000]
+tol_loss: 0.71182	cur:[25000]\[50000]
+tol_loss: 0.70687	cur:[30000]\[50000]
+tol_loss: 0.67911	cur:[35000]\[50000]
+tol_loss: 0.68495	cur:[40000]\[50000]
+tol_loss: 0.68688	cur:[45000]\[50000]
+tol_loss: 0.70651	cur:[50000]\[50000]
+epoch:15	avg_epoch|tol_loss:0.70098
+Adjusting learning rate of group 0 to 2.5000e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.68763	cur:[5000]\[10000]
+tol_loss: 0.69577	cur:[10000]\[10000]
+epoch:15	avg_epoch_eval|tol_loss:0.69170
+epoch:15	avg_metric|acc:0.50500
+save model state at ./check_point/2021-11-18::17:40:07/best.pth
+save model state at ./check_point/2021-11-18::17:40:07/epoch15.pth
+*************** epoch:16 ***************
+tol_loss: 0.68861	cur:[5000]\[50000]
+tol_loss: 0.66319	cur:[10000]\[50000]
+tol_loss: 0.66887	cur:[15000]\[50000]
+tol_loss: 0.67116	cur:[20000]\[50000]
+tol_loss: 0.66441	cur:[25000]\[50000]
+tol_loss: 0.67126	cur:[30000]\[50000]
+tol_loss: 0.63968	cur:[35000]\[50000]
+tol_loss: 0.66416	cur:[40000]\[50000]
+tol_loss: 0.65628	cur:[45000]\[50000]
+tol_loss: 0.65631	cur:[50000]\[50000]
+epoch:16	avg_epoch|tol_loss:0.66439
+Adjusting learning rate of group 0 to 1.6543e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.65647	cur:[5000]\[10000]
+tol_loss: 0.66258	cur:[10000]\[10000]
+epoch:16	avg_epoch_eval|tol_loss:0.65952
+epoch:16	avg_metric|acc:0.52640
+save model state at ./check_point/2021-11-18::17:40:07/best.pth
+*************** epoch:17 ***************
+tol_loss: 0.64512	cur:[5000]\[50000]
+tol_loss: 0.64161	cur:[10000]\[50000]
+tol_loss: 0.64518	cur:[15000]\[50000]
+tol_loss: 0.63731	cur:[20000]\[50000]
+tol_loss: 0.62908	cur:[25000]\[50000]
+tol_loss: 0.62889	cur:[30000]\[50000]
+tol_loss: 0.63017	cur:[35000]\[50000]
+tol_loss: 0.62070	cur:[40000]\[50000]
+tol_loss: 0.63242	cur:[45000]\[50000]
+tol_loss: 0.62961	cur:[50000]\[50000]
+epoch:17	avg_epoch|tol_loss:0.63401
+Adjusting learning rate of group 0 to 9.5492e-05.
+--------------- Evaluation ---------------
+tol_loss: 0.64822	cur:[5000]\[10000]
+tol_loss: 0.64527	cur:[10000]\[10000]
+epoch:17	avg_epoch_eval|tol_loss:0.64675
+epoch:17	avg_metric|acc:0.54120
+save model state at ./check_point/2021-11-18::17:40:07/best.pth
+*************** epoch:18 ***************
+tol_loss: 0.62364	cur:[5000]\[50000]
+tol_loss: 0.62155	cur:[10000]\[50000]
+tol_loss: 0.60879	cur:[15000]\[50000]
+tol_loss: 0.61373	cur:[20000]\[50000]
+tol_loss: 0.61912	cur:[25000]\[50000]
+tol_loss: 0.63221	cur:[30000]\[50000]
+tol_loss: 0.61347	cur:[35000]\[50000]
+tol_loss: 0.61434	cur:[40000]\[50000]
+tol_loss: 0.60860	cur:[45000]\[50000]
+tol_loss: 0.60569	cur:[50000]\[50000]
+epoch:18	avg_epoch|tol_loss:0.61611
+Adjusting learning rate of group 0 to 4.3227e-05.
+--------------- Evaluation ---------------
+tol_loss: 0.63510	cur:[5000]\[10000]
+tol_loss: 0.63384	cur:[10000]\[10000]
+epoch:18	avg_epoch_eval|tol_loss:0.63447
+epoch:18	avg_metric|acc:0.54320
+save model state at ./check_point/2021-11-18::17:40:07/best.pth
+*************** epoch:19 ***************
+tol_loss: 0.60447	cur:[5000]\[50000]
+tol_loss: 0.61693	cur:[10000]\[50000]
+tol_loss: 0.60983	cur:[15000]\[50000]
+tol_loss: 0.59310	cur:[20000]\[50000]
+tol_loss: 0.60015	cur:[25000]\[50000]
+tol_loss: 0.60255	cur:[30000]\[50000]
+tol_loss: 0.59079	cur:[35000]\[50000]
+tol_loss: 0.59589	cur:[40000]\[50000]
+tol_loss: 0.59179	cur:[45000]\[50000]
+tol_loss: 0.59635	cur:[50000]\[50000]
+epoch:19	avg_epoch|tol_loss:0.60019
+Adjusting learning rate of group 0 to 1.0926e-05.
+--------------- Evaluation ---------------
+tol_loss: 0.61661	cur:[5000]\[10000]
+tol_loss: 0.61891	cur:[10000]\[10000]
+epoch:19	avg_epoch_eval|tol_loss:0.61776
+epoch:19	avg_metric|acc:0.55750
+save model state at ./check_point/2021-11-18::17:40:07/best.pth
+*************** epoch:20 ***************
+tol_loss: 0.59307	cur:[5000]\[50000]
+tol_loss: 0.59674	cur:[10000]\[50000]
+tol_loss: 0.58557	cur:[15000]\[50000]
+tol_loss: 0.57957	cur:[20000]\[50000]
+tol_loss: 0.58144	cur:[25000]\[50000]
+tol_loss: 0.58402	cur:[30000]\[50000]
+tol_loss: 0.58850	cur:[35000]\[50000]
+tol_loss: 0.59105	cur:[40000]\[50000]
+tol_loss: 0.59407	cur:[45000]\[50000]
+tol_loss: 0.59336	cur:[50000]\[50000]
+epoch:20	avg_epoch|tol_loss:0.58874
+Adjusting learning rate of group 0 to 0.0000e+00.
+--------------- Evaluation ---------------
+tol_loss: 0.61684	cur:[5000]\[10000]
+tol_loss: 0.61138	cur:[10000]\[10000]
+epoch:20	avg_epoch_eval|tol_loss:0.61411
+epoch:20	avg_metric|acc:0.55910
+save model state at ./check_point/2021-11-18::17:40:07/best.pth
+save model state at ./check_point/2021-11-18::17:40:07/epoch20.pth
+*************** epoch:21 ***************
+tol_loss: 0.58480	cur:[5000]\[50000]
+tol_loss: 0.59068	cur:[10000]\[50000]
+tol_loss: 0.59441	cur:[15000]\[50000]
+tol_loss: 0.58965	cur:[20000]\[50000]
+tol_loss: 0.58101	cur:[25000]\[50000]
+tol_loss: 0.58974	cur:[30000]\[50000]
+tol_loss: 0.58148	cur:[35000]\[50000]
+tol_loss: 0.58211	cur:[40000]\[50000]
+tol_loss: 0.58591	cur:[45000]\[50000]
+tol_loss: 0.59007	cur:[50000]\[50000]
+epoch:21	avg_epoch|tol_loss:0.58699
+Adjusting learning rate of group 0 to 1.0926e-05.
+--------------- Evaluation ---------------
+tol_loss: 0.61232	cur:[5000]\[10000]
+tol_loss: 0.62367	cur:[10000]\[10000]
+epoch:21	avg_epoch_eval|tol_loss:0.61800
+epoch:21	avg_metric|acc:0.55730
+*************** epoch:22 ***************
+tol_loss: 0.57684	cur:[5000]\[50000]
+tol_loss: 0.57761	cur:[10000]\[50000]
+tol_loss: 0.58530	cur:[15000]\[50000]
+tol_loss: 0.58560	cur:[20000]\[50000]
+tol_loss: 0.58193	cur:[25000]\[50000]
+tol_loss: 0.58043	cur:[30000]\[50000]
+tol_loss: 0.58228	cur:[35000]\[50000]
+tol_loss: 0.59533	cur:[40000]\[50000]
+tol_loss: 0.59774	cur:[45000]\[50000]
+tol_loss: 0.59618	cur:[50000]\[50000]
+epoch:22	avg_epoch|tol_loss:0.58592
+Adjusting learning rate of group 0 to 4.3227e-05.
+--------------- Evaluation ---------------
+tol_loss: 0.61033	cur:[5000]\[10000]
+tol_loss: 0.61737	cur:[10000]\[10000]
+epoch:22	avg_epoch_eval|tol_loss:0.61385
+epoch:22	avg_metric|acc:0.55930
+save model state at ./check_point/2021-11-18::17:40:07/best.pth
+*************** epoch:23 ***************
+tol_loss: 0.59341	cur:[5000]\[50000]
+tol_loss: 0.58830	cur:[10000]\[50000]
+tol_loss: 0.58385	cur:[15000]\[50000]
+tol_loss: 0.58070	cur:[20000]\[50000]
+tol_loss: 0.58482	cur:[25000]\[50000]
+tol_loss: 0.60707	cur:[30000]\[50000]
+tol_loss: 0.57649	cur:[35000]\[50000]
+tol_loss: 0.59182	cur:[40000]\[50000]
+tol_loss: 0.58385	cur:[45000]\[50000]
+tol_loss: 0.60590	cur:[50000]\[50000]
+epoch:23	avg_epoch|tol_loss:0.58962
+Adjusting learning rate of group 0 to 9.5492e-05.
+--------------- Evaluation ---------------
+tol_loss: 0.62238	cur:[5000]\[10000]
+tol_loss: 0.61613	cur:[10000]\[10000]
+epoch:23	avg_epoch_eval|tol_loss:0.61925
+epoch:23	avg_metric|acc:0.55890
+*************** epoch:24 ***************
+tol_loss: 0.58149	cur:[5000]\[50000]
+tol_loss: 0.59483	cur:[10000]\[50000]
+tol_loss: 0.58327	cur:[15000]\[50000]
+tol_loss: 0.60093	cur:[20000]\[50000]
+tol_loss: 0.61217	cur:[25000]\[50000]
+tol_loss: 0.57188	cur:[30000]\[50000]
+tol_loss: 0.59030	cur:[35000]\[50000]
+tol_loss: 0.57730	cur:[40000]\[50000]
+tol_loss: 0.59723	cur:[45000]\[50000]
+tol_loss: 0.59808	cur:[50000]\[50000]
+epoch:24	avg_epoch|tol_loss:0.59075
+Adjusting learning rate of group 0 to 1.6543e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.61052	cur:[5000]\[10000]
+tol_loss: 0.62349	cur:[10000]\[10000]
+epoch:24	avg_epoch_eval|tol_loss:0.61700
+epoch:24	avg_metric|acc:0.56110
+save model state at ./check_point/2021-11-18::17:40:07/best.pth
+*************** epoch:25 ***************
+tol_loss: 0.59908	cur:[5000]\[50000]
+tol_loss: 0.59373	cur:[10000]\[50000]
+tol_loss: 0.59699	cur:[15000]\[50000]
+tol_loss: 0.59415	cur:[20000]\[50000]
+tol_loss: 0.60440	cur:[25000]\[50000]
+tol_loss: 0.58754	cur:[30000]\[50000]
+tol_loss: 0.58024	cur:[35000]\[50000]
+tol_loss: 0.59498	cur:[40000]\[50000]
+tol_loss: 0.60114	cur:[45000]\[50000]
+tol_loss: 0.61606	cur:[50000]\[50000]
+epoch:25	avg_epoch|tol_loss:0.59683
+Adjusting learning rate of group 0 to 2.5000e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.61935	cur:[5000]\[10000]
+tol_loss: 0.60947	cur:[10000]\[10000]
+epoch:25	avg_epoch_eval|tol_loss:0.61441
+epoch:25	avg_metric|acc:0.55730
+save model state at ./check_point/2021-11-18::17:40:07/epoch25.pth
+*************** epoch:26 ***************
+tol_loss: 0.58523	cur:[5000]\[50000]
+tol_loss: 0.59152	cur:[10000]\[50000]
+tol_loss: 0.61181	cur:[15000]\[50000]
+tol_loss: 0.60090	cur:[20000]\[50000]
+tol_loss: 0.60163	cur:[25000]\[50000]
+tol_loss: 0.59330	cur:[30000]\[50000]
+tol_loss: 0.58771	cur:[35000]\[50000]
+tol_loss: 0.60063	cur:[40000]\[50000]
+tol_loss: 0.61210	cur:[45000]\[50000]
+tol_loss: 0.61494	cur:[50000]\[50000]
+epoch:26	avg_epoch|tol_loss:0.59998
+Adjusting learning rate of group 0 to 3.4549e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.65050	cur:[5000]\[10000]
+tol_loss: 0.65070	cur:[10000]\[10000]
+epoch:26	avg_epoch_eval|tol_loss:0.65060
+epoch:26	avg_metric|acc:0.53310
+*************** epoch:27 ***************
+tol_loss: 0.62126	cur:[5000]\[50000]
+tol_loss: 0.58973	cur:[10000]\[50000]
+tol_loss: 0.61255	cur:[15000]\[50000]
+tol_loss: 0.63860	cur:[20000]\[50000]
+tol_loss: 0.63518	cur:[25000]\[50000]
+tol_loss: 0.62387	cur:[30000]\[50000]
+tol_loss: 0.63994	cur:[35000]\[50000]
+tol_loss: 0.62770	cur:[40000]\[50000]
+tol_loss: 0.62586	cur:[45000]\[50000]
+tol_loss: 0.60680	cur:[50000]\[50000]
+epoch:27	avg_epoch|tol_loss:0.62215
+Adjusting learning rate of group 0 to 4.4774e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.60397	cur:[5000]\[10000]
+tol_loss: 0.61840	cur:[10000]\[10000]
+epoch:27	avg_epoch_eval|tol_loss:0.61119
+epoch:27	avg_metric|acc:0.56400
+save model state at ./check_point/2021-11-18::17:40:07/best.pth
+*************** epoch:28 ***************
+tol_loss: 0.60449	cur:[5000]\[50000]
+tol_loss: 0.59885	cur:[10000]\[50000]
+tol_loss: 0.61506	cur:[15000]\[50000]
+tol_loss: 0.60622	cur:[20000]\[50000]
+tol_loss: 0.60469	cur:[25000]\[50000]
+tol_loss: 0.59143	cur:[30000]\[50000]
+tol_loss: 0.59193	cur:[35000]\[50000]
+tol_loss: 0.60349	cur:[40000]\[50000]
+tol_loss: 0.64262	cur:[45000]\[50000]
+tol_loss: 0.66243	cur:[50000]\[50000]
+epoch:28	avg_epoch|tol_loss:0.61212
+Adjusting learning rate of group 0 to 5.5226e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.65654	cur:[5000]\[10000]
+tol_loss: 0.64051	cur:[10000]\[10000]
+epoch:28	avg_epoch_eval|tol_loss:0.64853
+epoch:28	avg_metric|acc:0.54110
+*************** epoch:29 ***************
+tol_loss: 0.62700	cur:[5000]\[50000]
+tol_loss: 0.62649	cur:[10000]\[50000]
+tol_loss: 0.60880	cur:[15000]\[50000]
+tol_loss: 0.60259	cur:[20000]\[50000]
+tol_loss: 0.66028	cur:[25000]\[50000]
+tol_loss: 0.61845	cur:[30000]\[50000]
+tol_loss: 0.62236	cur:[35000]\[50000]
+tol_loss: 0.59609	cur:[40000]\[50000]
+tol_loss: 0.58409	cur:[45000]\[50000]
+tol_loss: 0.60598	cur:[50000]\[50000]
+epoch:29	avg_epoch|tol_loss:0.61521
+Adjusting learning rate of group 0 to 6.5451e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.57614	cur:[5000]\[10000]
+tol_loss: 0.59268	cur:[10000]\[10000]
+epoch:29	avg_epoch_eval|tol_loss:0.58441
+epoch:29	avg_metric|acc:0.58450
+save model state at ./check_point/2021-11-18::17:40:07/best.pth
+*************** epoch:30 ***************
+tol_loss: 0.56633	cur:[5000]\[50000]
+tol_loss: 0.68093	cur:[10000]\[50000]
+tol_loss: 0.66408	cur:[15000]\[50000]
+tol_loss: 0.62968	cur:[20000]\[50000]
+tol_loss: 0.67240	cur:[25000]\[50000]
+tol_loss: 0.63211	cur:[30000]\[50000]
+tol_loss: 0.58951	cur:[35000]\[50000]
+tol_loss: 0.62101	cur:[40000]\[50000]
+tol_loss: 0.60158	cur:[45000]\[50000]
+tol_loss: 0.59650	cur:[50000]\[50000]
+epoch:30	avg_epoch|tol_loss:0.62541
+Adjusting learning rate of group 0 to 7.5000e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.58467	cur:[5000]\[10000]
+tol_loss: 0.58472	cur:[10000]\[10000]
+epoch:30	avg_epoch_eval|tol_loss:0.58470
+epoch:30	avg_metric|acc:0.58270
+save model state at ./check_point/2021-11-18::17:40:07/epoch30.pth
+*************** epoch:31 ***************
+tol_loss: 0.57736	cur:[5000]\[50000]
+tol_loss: 0.58224	cur:[10000]\[50000]
+tol_loss: 0.57981	cur:[15000]\[50000]
+tol_loss: 0.57746	cur:[20000]\[50000]
+tol_loss: 0.56885	cur:[25000]\[50000]
+tol_loss: 0.58981	cur:[30000]\[50000]
+tol_loss: 0.64866	cur:[35000]\[50000]
+tol_loss: 0.63053	cur:[40000]\[50000]
+tol_loss: 0.60284	cur:[45000]\[50000]
+tol_loss: 0.57962	cur:[50000]\[50000]
+epoch:31	avg_epoch|tol_loss:0.59372
+Adjusting learning rate of group 0 to 8.3457e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.59429	cur:[5000]\[10000]
+tol_loss: 0.58805	cur:[10000]\[10000]
+epoch:31	avg_epoch_eval|tol_loss:0.59117
+epoch:31	avg_metric|acc:0.58290
+*************** epoch:32 ***************
+tol_loss: 0.57477	cur:[5000]\[50000]
+tol_loss: 0.59761	cur:[10000]\[50000]
+tol_loss: 0.58276	cur:[15000]\[50000]
+tol_loss: 0.59623	cur:[20000]\[50000]
+tol_loss: 0.64529	cur:[25000]\[50000]
+tol_loss: 0.58826	cur:[30000]\[50000]
+tol_loss: 0.59813	cur:[35000]\[50000]
+tol_loss: 0.57709	cur:[40000]\[50000]
+tol_loss: 0.55400	cur:[45000]\[50000]
+tol_loss: 0.56507	cur:[50000]\[50000]
+epoch:32	avg_epoch|tol_loss:0.58792
+Adjusting learning rate of group 0 to 9.0451e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.57825	cur:[5000]\[10000]
+tol_loss: 0.57666	cur:[10000]\[10000]
+epoch:32	avg_epoch_eval|tol_loss:0.57746
+epoch:32	avg_metric|acc:0.60310
+save model state at ./check_point/2021-11-18::17:40:07/best.pth
+*************** epoch:33 ***************
+tol_loss: 0.52822	cur:[5000]\[50000]
+tol_loss: 0.54863	cur:[10000]\[50000]
+tol_loss: 0.55194	cur:[15000]\[50000]
+tol_loss: 0.52913	cur:[20000]\[50000]
+tol_loss: 0.53995	cur:[25000]\[50000]
+tol_loss: 0.62458	cur:[30000]\[50000]
+tol_loss: 0.78634	cur:[35000]\[50000]
+tol_loss: 0.68496	cur:[40000]\[50000]
+tol_loss: 0.63643	cur:[45000]\[50000]
+tol_loss: 0.62228	cur:[50000]\[50000]
+epoch:33	avg_epoch|tol_loss:0.60525
+Adjusting learning rate of group 0 to 9.5677e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.62471	cur:[5000]\[10000]
+tol_loss: 0.61844	cur:[10000]\[10000]
+epoch:33	avg_epoch_eval|tol_loss:0.62158
+epoch:33	avg_metric|acc:0.56130
+*************** epoch:34 ***************
+tol_loss: 0.61146	cur:[5000]\[50000]
+tol_loss: 0.58637	cur:[10000]\[50000]
+tol_loss: 0.57507	cur:[15000]\[50000]
+tol_loss: 0.57264	cur:[20000]\[50000]
+tol_loss: 0.57583	cur:[25000]\[50000]
+tol_loss: 0.59259	cur:[30000]\[50000]
+tol_loss: 0.61719	cur:[35000]\[50000]
+tol_loss: 0.66059	cur:[40000]\[50000]
+tol_loss: 0.76795	cur:[45000]\[50000]
+tol_loss: 0.80332	cur:[50000]\[50000]
+epoch:34	avg_epoch|tol_loss:0.63630
+Adjusting learning rate of group 0 to 9.8907e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.76389	cur:[5000]\[10000]
+tol_loss: 0.76465	cur:[10000]\[10000]
+epoch:34	avg_epoch_eval|tol_loss:0.76427
+epoch:34	avg_metric|acc:0.45660
+*************** epoch:35 ***************
+tol_loss: 0.78039	cur:[5000]\[50000]
+tol_loss: 0.75554	cur:[10000]\[50000]
+tol_loss: 0.69519	cur:[15000]\[50000]
+tol_loss: 0.74616	cur:[20000]\[50000]
+tol_loss: 0.81842	cur:[25000]\[50000]
+tol_loss: 0.81899	cur:[30000]\[50000]
+tol_loss: 0.85074	cur:[35000]\[50000]
+tol_loss: 0.87818	cur:[40000]\[50000]
+tol_loss: 0.80870	cur:[45000]\[50000]
+tol_loss: 0.79114	cur:[50000]\[50000]
+epoch:35	avg_epoch|tol_loss:0.79434
+Adjusting learning rate of group 0 to 1.0000e-03.
+--------------- Evaluation ---------------
+tol_loss: 0.78698	cur:[5000]\[10000]
+tol_loss: 0.77970	cur:[10000]\[10000]
+epoch:35	avg_epoch_eval|tol_loss:0.78334
+epoch:35	avg_metric|acc:0.44560
+save model state at ./check_point/2021-11-18::17:40:07/epoch35.pth
+*************** epoch:36 ***************
+tol_loss: 0.82552	cur:[5000]\[50000]
+tol_loss: 0.77008	cur:[10000]\[50000]
+tol_loss: 0.72182	cur:[15000]\[50000]
+tol_loss: 0.67399	cur:[20000]\[50000]
+tol_loss: 0.67738	cur:[25000]\[50000]
+tol_loss: 0.66063	cur:[30000]\[50000]
+tol_loss: 0.65912	cur:[35000]\[50000]
+tol_loss: 0.62410	cur:[40000]\[50000]
+tol_loss: 0.64197	cur:[45000]\[50000]
+tol_loss: 0.62708	cur:[50000]\[50000]
+epoch:36	avg_epoch|tol_loss:0.68817
+Adjusting learning rate of group 0 to 9.8907e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.63560	cur:[5000]\[10000]
+tol_loss: 0.62818	cur:[10000]\[10000]
+epoch:36	avg_epoch_eval|tol_loss:0.63189
+epoch:36	avg_metric|acc:0.55920
+*************** epoch:37 ***************
+tol_loss: 0.62651	cur:[5000]\[50000]
+tol_loss: 0.62497	cur:[10000]\[50000]
+tol_loss: 0.64470	cur:[15000]\[50000]
+tol_loss: 0.67205	cur:[20000]\[50000]
+tol_loss: 0.66620	cur:[25000]\[50000]
+tol_loss: 0.65035	cur:[30000]\[50000]
+tol_loss: 0.62731	cur:[35000]\[50000]
+tol_loss: 0.61476	cur:[40000]\[50000]
+tol_loss: 0.61917	cur:[45000]\[50000]
+tol_loss: 0.59643	cur:[50000]\[50000]
+epoch:37	avg_epoch|tol_loss:0.63424
+Adjusting learning rate of group 0 to 9.5677e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.60744	cur:[5000]\[10000]
+tol_loss: 0.60964	cur:[10000]\[10000]
+epoch:37	avg_epoch_eval|tol_loss:0.60854
+epoch:37	avg_metric|acc:0.57470
+*************** epoch:38 ***************
+tol_loss: 0.57349	cur:[5000]\[50000]
+tol_loss: 0.56754	cur:[10000]\[50000]
+tol_loss: 0.56475	cur:[15000]\[50000]
+tol_loss: 0.57265	cur:[20000]\[50000]
+tol_loss: 0.60762	cur:[25000]\[50000]
+tol_loss: 0.61710	cur:[30000]\[50000]
+tol_loss: 0.58690	cur:[35000]\[50000]
+tol_loss: 0.56581	cur:[40000]\[50000]
+tol_loss: 0.54783	cur:[45000]\[50000]
+tol_loss: 0.53248	cur:[50000]\[50000]
+epoch:38	avg_epoch|tol_loss:0.57362
+Adjusting learning rate of group 0 to 9.0451e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.55238	cur:[5000]\[10000]
+tol_loss: 0.57633	cur:[10000]\[10000]
+epoch:38	avg_epoch_eval|tol_loss:0.56435
+epoch:38	avg_metric|acc:0.61050
+save model state at ./check_point/2021-11-18::17:40:07/best.pth
+*************** epoch:39 ***************
+tol_loss: 0.52667	cur:[5000]\[50000]
+tol_loss: 0.52378	cur:[10000]\[50000]
+tol_loss: 0.53541	cur:[15000]\[50000]
+tol_loss: 0.53646	cur:[20000]\[50000]
+tol_loss: 0.51644	cur:[25000]\[50000]
+tol_loss: 0.50979	cur:[30000]\[50000]
+tol_loss: 0.53467	cur:[35000]\[50000]
+tol_loss: 0.52407	cur:[40000]\[50000]
+tol_loss: 0.51383	cur:[45000]\[50000]
+tol_loss: 0.52154	cur:[50000]\[50000]
+epoch:39	avg_epoch|tol_loss:0.52427
+Adjusting learning rate of group 0 to 8.3457e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.53389	cur:[5000]\[10000]
+tol_loss: 0.54743	cur:[10000]\[10000]
+epoch:39	avg_epoch_eval|tol_loss:0.54066
+epoch:39	avg_metric|acc:0.61930
+save model state at ./check_point/2021-11-18::17:40:07/best.pth
+*************** epoch:40 ***************
+tol_loss: 0.51885	cur:[5000]\[50000]
+tol_loss: 0.50798	cur:[10000]\[50000]
+tol_loss: 0.49647	cur:[15000]\[50000]
+tol_loss: 0.51088	cur:[20000]\[50000]
+tol_loss: 0.53335	cur:[25000]\[50000]
+tol_loss: 0.51572	cur:[30000]\[50000]
+tol_loss: 0.50498	cur:[35000]\[50000]
+tol_loss: 0.51431	cur:[40000]\[50000]
+tol_loss: 0.49452	cur:[45000]\[50000]
+tol_loss: 0.49944	cur:[50000]\[50000]
+epoch:40	avg_epoch|tol_loss:0.50965
+Adjusting learning rate of group 0 to 7.5000e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.51454	cur:[5000]\[10000]
+tol_loss: 0.52153	cur:[10000]\[10000]
+epoch:40	avg_epoch_eval|tol_loss:0.51803
+epoch:40	avg_metric|acc:0.63290
+save model state at ./check_point/2021-11-18::17:40:07/best.pth
+save model state at ./check_point/2021-11-18::17:40:07/epoch40.pth
+*************** epoch:41 ***************
+tol_loss: 0.49631	cur:[5000]\[50000]
+tol_loss: 0.47022	cur:[10000]\[50000]
+tol_loss: 0.48050	cur:[15000]\[50000]
+tol_loss: 0.48471	cur:[20000]\[50000]
+tol_loss: 0.48307	cur:[25000]\[50000]
+tol_loss: 0.51445	cur:[30000]\[50000]
+tol_loss: 0.48655	cur:[35000]\[50000]
+tol_loss: 0.47996	cur:[40000]\[50000]
+tol_loss: 0.52395	cur:[45000]\[50000]
+tol_loss: 0.50103	cur:[50000]\[50000]
+epoch:41	avg_epoch|tol_loss:0.49208
+Adjusting learning rate of group 0 to 6.5451e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.53086	cur:[5000]\[10000]
+tol_loss: 0.51261	cur:[10000]\[10000]
+epoch:41	avg_epoch_eval|tol_loss:0.52173
+epoch:41	avg_metric|acc:0.63470
+save model state at ./check_point/2021-11-18::17:40:07/best.pth
+*************** epoch:42 ***************
+tol_loss: 0.48972	cur:[5000]\[50000]
+tol_loss: 0.46030	cur:[10000]\[50000]
+tol_loss: 0.45513	cur:[15000]\[50000]
+tol_loss: 0.47979	cur:[20000]\[50000]
+tol_loss: 0.48645	cur:[25000]\[50000]
+tol_loss: 0.46087	cur:[30000]\[50000]
+tol_loss: 0.46043	cur:[35000]\[50000]
+tol_loss: 0.46375	cur:[40000]\[50000]
+tol_loss: 0.46927	cur:[45000]\[50000]
+tol_loss: 0.45121	cur:[50000]\[50000]
+epoch:42	avg_epoch|tol_loss:0.46769
+Adjusting learning rate of group 0 to 5.5226e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.48989	cur:[5000]\[10000]
+tol_loss: 0.48981	cur:[10000]\[10000]
+epoch:42	avg_epoch_eval|tol_loss:0.48985
+epoch:42	avg_metric|acc:0.65810
+save model state at ./check_point/2021-11-18::17:40:07/best.pth
+*************** epoch:43 ***************
+tol_loss: 0.44218	cur:[5000]\[50000]
+tol_loss: 0.44438	cur:[10000]\[50000]
+tol_loss: 0.43846	cur:[15000]\[50000]
+tol_loss: 0.44974	cur:[20000]\[50000]
+tol_loss: 0.43894	cur:[25000]\[50000]
+tol_loss: 0.44908	cur:[30000]\[50000]
+tol_loss: 0.44053	cur:[35000]\[50000]
+tol_loss: 0.44052	cur:[40000]\[50000]
+tol_loss: 0.49942	cur:[45000]\[50000]
+tol_loss: 0.46709	cur:[50000]\[50000]
+epoch:43	avg_epoch|tol_loss:0.45104
+Adjusting learning rate of group 0 to 4.4774e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.48604	cur:[5000]\[10000]
+tol_loss: 0.48703	cur:[10000]\[10000]
+epoch:43	avg_epoch_eval|tol_loss:0.48654
+epoch:43	avg_metric|acc:0.65760
+*************** epoch:44 ***************
+tol_loss: 0.43433	cur:[5000]\[50000]
+tol_loss: 0.43167	cur:[10000]\[50000]
+tol_loss: 0.41944	cur:[15000]\[50000]
+tol_loss: 0.42758	cur:[20000]\[50000]
+tol_loss: 0.41549	cur:[25000]\[50000]
+tol_loss: 0.43704	cur:[30000]\[50000]
+tol_loss: 0.41528	cur:[35000]\[50000]
+tol_loss: 0.42430	cur:[40000]\[50000]
+tol_loss: 0.42016	cur:[45000]\[50000]
+tol_loss: 0.41216	cur:[50000]\[50000]
+epoch:44	avg_epoch|tol_loss:0.42375
+Adjusting learning rate of group 0 to 3.4549e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.45689	cur:[5000]\[10000]
+tol_loss: 0.45317	cur:[10000]\[10000]
+epoch:44	avg_epoch_eval|tol_loss:0.45503
+epoch:44	avg_metric|acc:0.67810
+save model state at ./check_point/2021-11-18::17:40:07/best.pth
+*************** epoch:45 ***************
+tol_loss: 0.40393	cur:[5000]\[50000]
+tol_loss: 0.40795	cur:[10000]\[50000]
+tol_loss: 0.39298	cur:[15000]\[50000]
+tol_loss: 0.39976	cur:[20000]\[50000]
+tol_loss: 0.40729	cur:[25000]\[50000]
+tol_loss: 0.38962	cur:[30000]\[50000]
+tol_loss: 0.39671	cur:[35000]\[50000]
+tol_loss: 0.40226	cur:[40000]\[50000]
+tol_loss: 0.40762	cur:[45000]\[50000]
+tol_loss: 0.40404	cur:[50000]\[50000]
+epoch:45	avg_epoch|tol_loss:0.40122
+Adjusting learning rate of group 0 to 2.5000e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.45602	cur:[5000]\[10000]
+tol_loss: 0.43736	cur:[10000]\[10000]
+epoch:45	avg_epoch_eval|tol_loss:0.44669
+epoch:45	avg_metric|acc:0.68250
+save model state at ./check_point/2021-11-18::17:40:07/best.pth
+save model state at ./check_point/2021-11-18::17:40:07/epoch45.pth
+*************** epoch:46 ***************
+tol_loss: 0.37938	cur:[5000]\[50000]
+tol_loss: 0.38888	cur:[10000]\[50000]
+tol_loss: 0.36389	cur:[15000]\[50000]
+tol_loss: 0.39036	cur:[20000]\[50000]
+tol_loss: 0.39193	cur:[25000]\[50000]
+tol_loss: 0.37253	cur:[30000]\[50000]
+tol_loss: 0.38111	cur:[35000]\[50000]
+tol_loss: 0.37139	cur:[40000]\[50000]
+tol_loss: 0.38401	cur:[45000]\[50000]
+tol_loss: 0.38354	cur:[50000]\[50000]
+epoch:46	avg_epoch|tol_loss:0.38070
+Adjusting learning rate of group 0 to 1.6543e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.43584	cur:[5000]\[10000]
+tol_loss: 0.44105	cur:[10000]\[10000]
+epoch:46	avg_epoch_eval|tol_loss:0.43844
+epoch:46	avg_metric|acc:0.69120
+save model state at ./check_point/2021-11-18::17:40:07/best.pth
+*************** epoch:47 ***************
+tol_loss: 0.35344	cur:[5000]\[50000]
+tol_loss: 0.37119	cur:[10000]\[50000]
+tol_loss: 0.36895	cur:[15000]\[50000]
+tol_loss: 0.36561	cur:[20000]\[50000]
+tol_loss: 0.35908	cur:[25000]\[50000]
+tol_loss: 0.36890	cur:[30000]\[50000]
+tol_loss: 0.36139	cur:[35000]\[50000]
+tol_loss: 0.37088	cur:[40000]\[50000]
+tol_loss: 0.36222	cur:[45000]\[50000]
+tol_loss: 0.36619	cur:[50000]\[50000]
+epoch:47	avg_epoch|tol_loss:0.36479
+Adjusting learning rate of group 0 to 9.5492e-05.
+--------------- Evaluation ---------------
+tol_loss: 0.43412	cur:[5000]\[10000]
+tol_loss: 0.43297	cur:[10000]\[10000]
+epoch:47	avg_epoch_eval|tol_loss:0.43355
+epoch:47	avg_metric|acc:0.70050
+save model state at ./check_point/2021-11-18::17:40:07/best.pth
+*************** epoch:48 ***************
+tol_loss: 0.36330	cur:[5000]\[50000]
+tol_loss: 0.35360	cur:[10000]\[50000]
+tol_loss: 0.35823	cur:[15000]\[50000]
+tol_loss: 0.35664	cur:[20000]\[50000]
+tol_loss: 0.34803	cur:[25000]\[50000]
+tol_loss: 0.34339	cur:[30000]\[50000]
+tol_loss: 0.34894	cur:[35000]\[50000]
+tol_loss: 0.35101	cur:[40000]\[50000]
+tol_loss: 0.35340	cur:[45000]\[50000]
+tol_loss: 0.34557	cur:[50000]\[50000]
+epoch:48	avg_epoch|tol_loss:0.35221
+Adjusting learning rate of group 0 to 4.3227e-05.
+--------------- Evaluation ---------------
+tol_loss: 0.43369	cur:[5000]\[10000]
+tol_loss: 0.42579	cur:[10000]\[10000]
+epoch:48	avg_epoch_eval|tol_loss:0.42974
+epoch:48	avg_metric|acc:0.70140
+save model state at ./check_point/2021-11-18::17:40:07/best.pth
+*************** epoch:49 ***************
+tol_loss: 0.34651	cur:[5000]\[50000]
+tol_loss: 0.33572	cur:[10000]\[50000]
+tol_loss: 0.34195	cur:[15000]\[50000]
+tol_loss: 0.32830	cur:[20000]\[50000]
+tol_loss: 0.34007	cur:[25000]\[50000]
+tol_loss: 0.35698	cur:[30000]\[50000]
+tol_loss: 0.34209	cur:[35000]\[50000]
+tol_loss: 0.32765	cur:[40000]\[50000]
+tol_loss: 0.34235	cur:[45000]\[50000]
+tol_loss: 0.33788	cur:[50000]\[50000]
+epoch:49	avg_epoch|tol_loss:0.33995
+Adjusting learning rate of group 0 to 1.0926e-05.
+--------------- Evaluation ---------------
+tol_loss: 0.43085	cur:[5000]\[10000]
+tol_loss: 0.41935	cur:[10000]\[10000]
+epoch:49	avg_epoch_eval|tol_loss:0.42510
+epoch:49	avg_metric|acc:0.70130
+*************** epoch:50 ***************
+tol_loss: 0.33077	cur:[5000]\[50000]
+tol_loss: 0.34183	cur:[10000]\[50000]
+tol_loss: 0.34336	cur:[15000]\[50000]
+tol_loss: 0.32728	cur:[20000]\[50000]
+tol_loss: 0.34096	cur:[25000]\[50000]
+tol_loss: 0.33104	cur:[30000]\[50000]
+tol_loss: 0.33792	cur:[35000]\[50000]
+tol_loss: 0.34031	cur:[40000]\[50000]
+tol_loss: 0.33141	cur:[45000]\[50000]
+tol_loss: 0.33346	cur:[50000]\[50000]
+epoch:50	avg_epoch|tol_loss:0.33583
+Adjusting learning rate of group 0 to 0.0000e+00.
+--------------- Evaluation ---------------
+tol_loss: 0.42470	cur:[5000]\[10000]
+tol_loss: 0.41169	cur:[10000]\[10000]
+epoch:50	avg_epoch_eval|tol_loss:0.41820
+epoch:50	avg_metric|acc:0.71170
+save model state at ./check_point/2021-11-18::17:40:07/best.pth
+save model state at ./check_point/2021-11-18::17:40:07/epoch50.pth
+*************** epoch:51 ***************
+tol_loss: 0.33569	cur:[5000]\[50000]
+tol_loss: 0.33656	cur:[10000]\[50000]
+tol_loss: 0.33719	cur:[15000]\[50000]
+tol_loss: 0.32941	cur:[20000]\[50000]
+tol_loss: 0.32804	cur:[25000]\[50000]
+tol_loss: 0.33625	cur:[30000]\[50000]
+tol_loss: 0.33803	cur:[35000]\[50000]
+tol_loss: 0.33015	cur:[40000]\[50000]
+tol_loss: 0.33047	cur:[45000]\[50000]
+tol_loss: 0.32056	cur:[50000]\[50000]
+epoch:51	avg_epoch|tol_loss:0.33224
+Adjusting learning rate of group 0 to 1.0926e-05.
+--------------- Evaluation ---------------
+tol_loss: 0.41920	cur:[5000]\[10000]
+tol_loss: 0.43028	cur:[10000]\[10000]
+epoch:51	avg_epoch_eval|tol_loss:0.42474
+epoch:51	avg_metric|acc:0.70600
+*************** epoch:52 ***************
+tol_loss: 0.32212	cur:[5000]\[50000]
+tol_loss: 0.32439	cur:[10000]\[50000]
+tol_loss: 0.33403	cur:[15000]\[50000]
+tol_loss: 0.34401	cur:[20000]\[50000]
+tol_loss: 0.33437	cur:[25000]\[50000]
+tol_loss: 0.32207	cur:[30000]\[50000]
+tol_loss: 0.33390	cur:[35000]\[50000]
+tol_loss: 0.33627	cur:[40000]\[50000]
+tol_loss: 0.35051	cur:[45000]\[50000]
+tol_loss: 0.33607	cur:[50000]\[50000]
+epoch:52	avg_epoch|tol_loss:0.33377
+Adjusting learning rate of group 0 to 4.3227e-05.
+--------------- Evaluation ---------------
+tol_loss: 0.42240	cur:[5000]\[10000]
+tol_loss: 0.42204	cur:[10000]\[10000]
+epoch:52	avg_epoch_eval|tol_loss:0.42222
+epoch:52	avg_metric|acc:0.71240
+save model state at ./check_point/2021-11-18::17:40:07/best.pth
+*************** epoch:53 ***************
+tol_loss: 0.33242	cur:[5000]\[50000]
+tol_loss: 0.33176	cur:[10000]\[50000]
+tol_loss: 0.33286	cur:[15000]\[50000]
+tol_loss: 0.33392	cur:[20000]\[50000]
+tol_loss: 0.33572	cur:[25000]\[50000]
+tol_loss: 0.33225	cur:[30000]\[50000]
+tol_loss: 0.32781	cur:[35000]\[50000]
+tol_loss: 0.34927	cur:[40000]\[50000]
+tol_loss: 0.33631	cur:[45000]\[50000]
+tol_loss: 0.32723	cur:[50000]\[50000]
+epoch:53	avg_epoch|tol_loss:0.33395
+Adjusting learning rate of group 0 to 9.5492e-05.
+--------------- Evaluation ---------------
+tol_loss: 0.42538	cur:[5000]\[10000]
+tol_loss: 0.41162	cur:[10000]\[10000]
+epoch:53	avg_epoch_eval|tol_loss:0.41850
+epoch:53	avg_metric|acc:0.70790
+*************** epoch:54 ***************
+tol_loss: 0.33868	cur:[5000]\[50000]
+tol_loss: 0.32689	cur:[10000]\[50000]
+tol_loss: 0.33975	cur:[15000]\[50000]
+tol_loss: 0.32142	cur:[20000]\[50000]
+tol_loss: 0.33682	cur:[25000]\[50000]
+tol_loss: 0.34415	cur:[30000]\[50000]
+tol_loss: 0.34559	cur:[35000]\[50000]
+tol_loss: 0.34629	cur:[40000]\[50000]
+tol_loss: 0.33920	cur:[45000]\[50000]
+tol_loss: 0.34941	cur:[50000]\[50000]
+epoch:54	avg_epoch|tol_loss:0.33882
+Adjusting learning rate of group 0 to 1.6543e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.41497	cur:[5000]\[10000]
+tol_loss: 0.43349	cur:[10000]\[10000]
+epoch:54	avg_epoch_eval|tol_loss:0.42423
+epoch:54	avg_metric|acc:0.70680
+*************** epoch:55 ***************
+tol_loss: 0.34108	cur:[5000]\[50000]
+tol_loss: 0.34447	cur:[10000]\[50000]
+tol_loss: 0.34477	cur:[15000]\[50000]
+tol_loss: 0.33028	cur:[20000]\[50000]
+tol_loss: 0.34182	cur:[25000]\[50000]
+tol_loss: 0.35100	cur:[30000]\[50000]
+tol_loss: 0.33389	cur:[35000]\[50000]
+tol_loss: 0.33206	cur:[40000]\[50000]
+tol_loss: 0.35264	cur:[45000]\[50000]
+tol_loss: 0.33943	cur:[50000]\[50000]
+epoch:55	avg_epoch|tol_loss:0.34114
+Adjusting learning rate of group 0 to 2.5000e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.44134	cur:[5000]\[10000]
+tol_loss: 0.42812	cur:[10000]\[10000]
+epoch:55	avg_epoch_eval|tol_loss:0.43473
+epoch:55	avg_metric|acc:0.69920
+save model state at ./check_point/2021-11-18::17:40:07/epoch55.pth
+*************** epoch:56 ***************
+tol_loss: 0.34677	cur:[5000]\[50000]
+tol_loss: 0.33937	cur:[10000]\[50000]
+tol_loss: 0.35764	cur:[15000]\[50000]
+tol_loss: 0.35413	cur:[20000]\[50000]
+tol_loss: 0.35003	cur:[25000]\[50000]
+tol_loss: 0.35989	cur:[30000]\[50000]
+tol_loss: 0.35583	cur:[35000]\[50000]
+tol_loss: 0.34401	cur:[40000]\[50000]
+tol_loss: 0.36068	cur:[45000]\[50000]
+tol_loss: 0.34407	cur:[50000]\[50000]
+epoch:56	avg_epoch|tol_loss:0.35124
+Adjusting learning rate of group 0 to 3.4549e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.43778	cur:[5000]\[10000]
+tol_loss: 0.44026	cur:[10000]\[10000]
+epoch:56	avg_epoch_eval|tol_loss:0.43902
+epoch:56	avg_metric|acc:0.69710
+*************** epoch:57 ***************
+tol_loss: 0.33938	cur:[5000]\[50000]
+tol_loss: 0.36599	cur:[10000]\[50000]
+tol_loss: 0.34802	cur:[15000]\[50000]
+tol_loss: 0.35941	cur:[20000]\[50000]
+tol_loss: 0.35881	cur:[25000]\[50000]
+tol_loss: 0.35573	cur:[30000]\[50000]
+tol_loss: 0.39745	cur:[35000]\[50000]
+tol_loss: 0.39785	cur:[40000]\[50000]
+tol_loss: 0.38982	cur:[45000]\[50000]
+tol_loss: 0.37643	cur:[50000]\[50000]
+epoch:57	avg_epoch|tol_loss:0.36889
+Adjusting learning rate of group 0 to 4.4774e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.45060	cur:[5000]\[10000]
+tol_loss: 0.43555	cur:[10000]\[10000]
+epoch:57	avg_epoch_eval|tol_loss:0.44307
+epoch:57	avg_metric|acc:0.69070
+*************** epoch:58 ***************
+tol_loss: 0.35869	cur:[5000]\[50000]
+tol_loss: 0.36117	cur:[10000]\[50000]
+tol_loss: 0.36577	cur:[15000]\[50000]
+tol_loss: 0.37304	cur:[20000]\[50000]
+tol_loss: 0.36878	cur:[25000]\[50000]
+tol_loss: 0.35627	cur:[30000]\[50000]
+tol_loss: 0.36486	cur:[35000]\[50000]
+tol_loss: 0.36975	cur:[40000]\[50000]
+tol_loss: 0.37049	cur:[45000]\[50000]
+tol_loss: 0.37228	cur:[50000]\[50000]
+epoch:58	avg_epoch|tol_loss:0.36611
+Adjusting learning rate of group 0 to 5.5226e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.44933	cur:[5000]\[10000]
+tol_loss: 0.43230	cur:[10000]\[10000]
+epoch:58	avg_epoch_eval|tol_loss:0.44082
+epoch:58	avg_metric|acc:0.69700
+*************** epoch:59 ***************
+tol_loss: 0.34314	cur:[5000]\[50000]
+tol_loss: 0.36708	cur:[10000]\[50000]
+tol_loss: 0.35895	cur:[15000]\[50000]
+tol_loss: 0.36479	cur:[20000]\[50000]
+tol_loss: 0.37881	cur:[25000]\[50000]
+tol_loss: 0.35170	cur:[30000]\[50000]
+tol_loss: 0.37222	cur:[35000]\[50000]
+tol_loss: 0.36792	cur:[40000]\[50000]
+tol_loss: 0.36727	cur:[45000]\[50000]
+tol_loss: 0.36913	cur:[50000]\[50000]
+epoch:59	avg_epoch|tol_loss:0.36410
+Adjusting learning rate of group 0 to 6.5451e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.44336	cur:[5000]\[10000]
+tol_loss: 0.43723	cur:[10000]\[10000]
+epoch:59	avg_epoch_eval|tol_loss:0.44029
+epoch:59	avg_metric|acc:0.68910
+*************** epoch:60 ***************
+tol_loss: 0.35287	cur:[5000]\[50000]
+tol_loss: 0.37097	cur:[10000]\[50000]
+tol_loss: 0.36120	cur:[15000]\[50000]
+tol_loss: 0.37558	cur:[20000]\[50000]
+tol_loss: 0.37952	cur:[25000]\[50000]
+tol_loss: 0.38294	cur:[30000]\[50000]
+tol_loss: 0.37267	cur:[35000]\[50000]
+tol_loss: 0.35600	cur:[40000]\[50000]
+tol_loss: 0.37180	cur:[45000]\[50000]
+tol_loss: 0.38336	cur:[50000]\[50000]
+epoch:60	avg_epoch|tol_loss:0.37069
+Adjusting learning rate of group 0 to 7.5000e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.42839	cur:[5000]\[10000]
+tol_loss: 0.44219	cur:[10000]\[10000]
+epoch:60	avg_epoch_eval|tol_loss:0.43529
+epoch:60	avg_metric|acc:0.69840
+save model state at ./check_point/2021-11-18::17:40:07/epoch60.pth
+*************** epoch:61 ***************
+tol_loss: 0.41268	cur:[5000]\[50000]
+tol_loss: 0.76192	cur:[10000]\[50000]
+tol_loss: 0.87299	cur:[15000]\[50000]
+tol_loss: 0.91076	cur:[20000]\[50000]
+tol_loss: 0.80479	cur:[25000]\[50000]
+tol_loss: 0.74225	cur:[30000]\[50000]
+tol_loss: 0.70970	cur:[35000]\[50000]
+tol_loss: 0.65491	cur:[40000]\[50000]
+tol_loss: 0.63625	cur:[45000]\[50000]
+tol_loss: 0.64369	cur:[50000]\[50000]
+epoch:61	avg_epoch|tol_loss:0.71499
+Adjusting learning rate of group 0 to 8.3457e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.65407	cur:[5000]\[10000]
+tol_loss: 0.64628	cur:[10000]\[10000]
+epoch:61	avg_epoch_eval|tol_loss:0.65018
+epoch:61	avg_metric|acc:0.56560
+*************** epoch:62 ***************
+tol_loss: 0.59396	cur:[5000]\[50000]
+tol_loss: 0.55767	cur:[10000]\[50000]
+tol_loss: 0.54996	cur:[15000]\[50000]
+tol_loss: 0.59000	cur:[20000]\[50000]
+tol_loss: 0.73600	cur:[25000]\[50000]
+tol_loss: 0.80590	cur:[30000]\[50000]
+tol_loss: 0.98069	cur:[35000]\[50000]
+tol_loss: 0.87559	cur:[40000]\[50000]
+tol_loss: 0.81544	cur:[45000]\[50000]
+tol_loss: 0.78880	cur:[50000]\[50000]
+epoch:62	avg_epoch|tol_loss:0.72940
+Adjusting learning rate of group 0 to 9.0451e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.75065	cur:[5000]\[10000]
+tol_loss: 0.75759	cur:[10000]\[10000]
+epoch:62	avg_epoch_eval|tol_loss:0.75412
+epoch:62	avg_metric|acc:0.45970
+*************** epoch:63 ***************
+tol_loss: 0.74078	cur:[5000]\[50000]
+tol_loss: 0.71865	cur:[10000]\[50000]
+tol_loss: 0.71434	cur:[15000]\[50000]
+tol_loss: 0.70131	cur:[20000]\[50000]
+tol_loss: 0.68868	cur:[25000]\[50000]
+tol_loss: 0.65809	cur:[30000]\[50000]
+tol_loss: 0.63360	cur:[35000]\[50000]
+tol_loss: 0.65467	cur:[40000]\[50000]
+tol_loss: 0.64289	cur:[45000]\[50000]
+tol_loss: 0.64249	cur:[50000]\[50000]
+epoch:63	avg_epoch|tol_loss:0.67955
+Adjusting learning rate of group 0 to 9.5677e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.62888	cur:[5000]\[10000]
+tol_loss: 0.65294	cur:[10000]\[10000]
+epoch:63	avg_epoch_eval|tol_loss:0.64091
+epoch:63	avg_metric|acc:0.54660
+*************** epoch:64 ***************
+tol_loss: 0.60560	cur:[5000]\[50000]
+tol_loss: 0.62532	cur:[10000]\[50000]
+tol_loss: 0.62381	cur:[15000]\[50000]
+tol_loss: 0.60475	cur:[20000]\[50000]
+tol_loss: 0.58616	cur:[25000]\[50000]
+tol_loss: 0.55854	cur:[30000]\[50000]
+tol_loss: 0.56872	cur:[35000]\[50000]
+tol_loss: 0.57047	cur:[40000]\[50000]
+tol_loss: 0.58701	cur:[45000]\[50000]
+tol_loss: 0.54252	cur:[50000]\[50000]
+epoch:64	avg_epoch|tol_loss:0.58729
+Adjusting learning rate of group 0 to 9.8907e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.55234	cur:[5000]\[10000]
+tol_loss: 0.56755	cur:[10000]\[10000]
+epoch:64	avg_epoch_eval|tol_loss:0.55994
+epoch:64	avg_metric|acc:0.60320
+*************** epoch:65 ***************
+tol_loss: 0.54570	cur:[5000]\[50000]
+tol_loss: 0.53164	cur:[10000]\[50000]
+tol_loss: 0.52868	cur:[15000]\[50000]
+tol_loss: 0.52011	cur:[20000]\[50000]
+tol_loss: 0.49016	cur:[25000]\[50000]
+tol_loss: 0.51499	cur:[30000]\[50000]
+tol_loss: 0.50457	cur:[35000]\[50000]
+tol_loss: 0.50229	cur:[40000]\[50000]
+tol_loss: 0.47720	cur:[45000]\[50000]
+tol_loss: 0.60693	cur:[50000]\[50000]
+epoch:65	avg_epoch|tol_loss:0.52223
+Adjusting learning rate of group 0 to 1.0000e-03.
+--------------- Evaluation ---------------
+tol_loss: 0.60476	cur:[5000]\[10000]
+tol_loss: 0.60414	cur:[10000]\[10000]
+epoch:65	avg_epoch_eval|tol_loss:0.60445
+epoch:65	avg_metric|acc:0.57770
+save model state at ./check_point/2021-11-18::17:40:07/epoch65.pth
+*************** epoch:66 ***************
+tol_loss: 0.56756	cur:[5000]\[50000]
+tol_loss: 0.53001	cur:[10000]\[50000]
+tol_loss: 0.51234	cur:[15000]\[50000]
+tol_loss: 0.49294	cur:[20000]\[50000]
+tol_loss: 0.53694	cur:[25000]\[50000]
+tol_loss: 0.57940	cur:[30000]\[50000]
+tol_loss: 0.62737	cur:[35000]\[50000]
+tol_loss: 0.66947	cur:[40000]\[50000]
+tol_loss: 0.64827	cur:[45000]\[50000]
+tol_loss: 0.63732	cur:[50000]\[50000]
+epoch:66	avg_epoch|tol_loss:0.58016
+Adjusting learning rate of group 0 to 9.8907e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.64179	cur:[5000]\[10000]
+tol_loss: 0.64084	cur:[10000]\[10000]
+epoch:66	avg_epoch_eval|tol_loss:0.64131
+epoch:66	avg_metric|acc:0.54740
+*************** epoch:67 ***************
+tol_loss: 0.61475	cur:[5000]\[50000]
+tol_loss: 0.56838	cur:[10000]\[50000]
+tol_loss: 0.55674	cur:[15000]\[50000]
+tol_loss: 0.52814	cur:[20000]\[50000]
+tol_loss: 0.54091	cur:[25000]\[50000]
+tol_loss: 0.53879	cur:[30000]\[50000]
+tol_loss: 0.50428	cur:[35000]\[50000]
+tol_loss: 0.51928	cur:[40000]\[50000]
+tol_loss: 0.49251	cur:[45000]\[50000]
+tol_loss: 0.52492	cur:[50000]\[50000]
+epoch:67	avg_epoch|tol_loss:0.53887
+Adjusting learning rate of group 0 to 9.5677e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.54547	cur:[5000]\[10000]
+tol_loss: 0.53903	cur:[10000]\[10000]
+epoch:67	avg_epoch_eval|tol_loss:0.54225
+epoch:67	avg_metric|acc:0.63470
+*************** epoch:68 ***************
+tol_loss: 0.50060	cur:[5000]\[50000]
+tol_loss: 0.48585	cur:[10000]\[50000]
+tol_loss: 0.47661	cur:[15000]\[50000]
+tol_loss: 0.46744	cur:[20000]\[50000]
+tol_loss: 0.47310	cur:[25000]\[50000]
+tol_loss: 0.48776	cur:[30000]\[50000]
+tol_loss: 0.47598	cur:[35000]\[50000]
+tol_loss: 0.50083	cur:[40000]\[50000]
+tol_loss: 0.46131	cur:[45000]\[50000]
+tol_loss: 0.48375	cur:[50000]\[50000]
+epoch:68	avg_epoch|tol_loss:0.48132
+Adjusting learning rate of group 0 to 9.0451e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.63697	cur:[5000]\[10000]
+tol_loss: 0.66248	cur:[10000]\[10000]
+epoch:68	avg_epoch_eval|tol_loss:0.64972
+epoch:68	avg_metric|acc:0.56300
+*************** epoch:69 ***************
+tol_loss: 0.58528	cur:[5000]\[50000]
+tol_loss: 0.52366	cur:[10000]\[50000]
+tol_loss: 0.48574	cur:[15000]\[50000]
+tol_loss: 0.48460	cur:[20000]\[50000]
+tol_loss: 0.48385	cur:[25000]\[50000]
+tol_loss: 0.47250	cur:[30000]\[50000]
+tol_loss: 0.51197	cur:[35000]\[50000]
+tol_loss: 0.57488	cur:[40000]\[50000]
+tol_loss: 0.67325	cur:[45000]\[50000]
+tol_loss: 0.62265	cur:[50000]\[50000]
+epoch:69	avg_epoch|tol_loss:0.54184
+Adjusting learning rate of group 0 to 8.3457e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.61724	cur:[5000]\[10000]
+tol_loss: 0.61250	cur:[10000]\[10000]
+epoch:69	avg_epoch_eval|tol_loss:0.61487
+epoch:69	avg_metric|acc:0.57810
+*************** epoch:70 ***************
+tol_loss: 0.57731	cur:[5000]\[50000]
+tol_loss: 0.55028	cur:[10000]\[50000]
+tol_loss: 0.55953	cur:[15000]\[50000]
+tol_loss: 0.54962	cur:[20000]\[50000]
+tol_loss: 0.51197	cur:[25000]\[50000]
+tol_loss: 0.50117	cur:[30000]\[50000]
+tol_loss: 0.49622	cur:[35000]\[50000]
+tol_loss: 0.47890	cur:[40000]\[50000]
+tol_loss: 0.54930	cur:[45000]\[50000]
+tol_loss: 0.52948	cur:[50000]\[50000]
+epoch:70	avg_epoch|tol_loss:0.53038
+Adjusting learning rate of group 0 to 7.5000e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.53167	cur:[5000]\[10000]
+tol_loss: 0.52763	cur:[10000]\[10000]
+epoch:70	avg_epoch_eval|tol_loss:0.52965
+epoch:70	avg_metric|acc:0.62880
+save model state at ./check_point/2021-11-18::17:40:07/epoch70.pth
+*************** epoch:71 ***************
+tol_loss: 0.50186	cur:[5000]\[50000]
+tol_loss: 0.45962	cur:[10000]\[50000]
+tol_loss: 0.46926	cur:[15000]\[50000]
+tol_loss: 0.53543	cur:[20000]\[50000]
+tol_loss: 0.47394	cur:[25000]\[50000]
+tol_loss: 0.47239	cur:[30000]\[50000]
+tol_loss: 0.46869	cur:[35000]\[50000]
+tol_loss: 0.48157	cur:[40000]\[50000]
+tol_loss: 0.47227	cur:[45000]\[50000]
+tol_loss: 0.45646	cur:[50000]\[50000]
+epoch:71	avg_epoch|tol_loss:0.47915
+Adjusting learning rate of group 0 to 6.5451e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.48480	cur:[5000]\[10000]
+tol_loss: 0.47468	cur:[10000]\[10000]
+epoch:71	avg_epoch_eval|tol_loss:0.47974
+epoch:71	avg_metric|acc:0.65790
+*************** epoch:72 ***************
+tol_loss: 0.43376	cur:[5000]\[50000]
+tol_loss: 0.43467	cur:[10000]\[50000]
+tol_loss: 0.43618	cur:[15000]\[50000]
+tol_loss: 0.42487	cur:[20000]\[50000]
+tol_loss: 0.42702	cur:[25000]\[50000]
+tol_loss: 0.43443	cur:[30000]\[50000]
+tol_loss: 0.41838	cur:[35000]\[50000]
+tol_loss: 0.41640	cur:[40000]\[50000]
+tol_loss: 0.41222	cur:[45000]\[50000]
+tol_loss: 0.43134	cur:[50000]\[50000]
+epoch:72	avg_epoch|tol_loss:0.42693
+Adjusting learning rate of group 0 to 5.5226e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.44459	cur:[5000]\[10000]
+tol_loss: 0.45902	cur:[10000]\[10000]
+epoch:72	avg_epoch_eval|tol_loss:0.45181
+epoch:72	avg_metric|acc:0.68130
+*************** epoch:73 ***************
+tol_loss: 0.39982	cur:[5000]\[50000]
+tol_loss: 0.38978	cur:[10000]\[50000]
+tol_loss: 0.39331	cur:[15000]\[50000]
+tol_loss: 0.40267	cur:[20000]\[50000]
+tol_loss: 0.40202	cur:[25000]\[50000]
+tol_loss: 0.38908	cur:[30000]\[50000]
+tol_loss: 0.40540	cur:[35000]\[50000]
+tol_loss: 0.41766	cur:[40000]\[50000]
+tol_loss: 0.45022	cur:[45000]\[50000]
+tol_loss: 0.40552	cur:[50000]\[50000]
+epoch:73	avg_epoch|tol_loss:0.40555
+Adjusting learning rate of group 0 to 4.4774e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.45269	cur:[5000]\[10000]
+tol_loss: 0.45299	cur:[10000]\[10000]
+epoch:73	avg_epoch_eval|tol_loss:0.45284
+epoch:73	avg_metric|acc:0.68480
+*************** epoch:74 ***************
+tol_loss: 0.38331	cur:[5000]\[50000]
+tol_loss: 0.37970	cur:[10000]\[50000]
+tol_loss: 0.38886	cur:[15000]\[50000]
+tol_loss: 0.39255	cur:[20000]\[50000]
+tol_loss: 0.37828	cur:[25000]\[50000]
+tol_loss: 0.38966	cur:[30000]\[50000]
+tol_loss: 0.42397	cur:[35000]\[50000]
+tol_loss: 0.40497	cur:[40000]\[50000]
+tol_loss: 0.40476	cur:[45000]\[50000]
+tol_loss: 0.39999	cur:[50000]\[50000]
+epoch:74	avg_epoch|tol_loss:0.39461
+Adjusting learning rate of group 0 to 3.4549e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.44405	cur:[5000]\[10000]
+tol_loss: 0.44797	cur:[10000]\[10000]
+epoch:74	avg_epoch_eval|tol_loss:0.44601
+epoch:74	avg_metric|acc:0.68990
+*************** epoch:75 ***************
+tol_loss: 0.37636	cur:[5000]\[50000]
+tol_loss: 0.37382	cur:[10000]\[50000]
+tol_loss: 0.36623	cur:[15000]\[50000]
+tol_loss: 0.36120	cur:[20000]\[50000]
+tol_loss: 0.38712	cur:[25000]\[50000]
+tol_loss: 0.36783	cur:[30000]\[50000]
+tol_loss: 0.40098	cur:[35000]\[50000]
+tol_loss: 0.35763	cur:[40000]\[50000]
+tol_loss: 0.36710	cur:[45000]\[50000]
+tol_loss: 0.36405	cur:[50000]\[50000]
+epoch:75	avg_epoch|tol_loss:0.37223
+Adjusting learning rate of group 0 to 2.5000e-04.
+--------------- Evaluation ---------------
+tol_loss: 0.44420	cur:[5000]\[10000]
+tol_loss: 0.41911	cur:[10000]\[10000]
+epoch:75	avg_epoch_eval|tol_loss:0.43165
+epoch:75	avg_metric|acc:0.69820
+save model state at ./check_point/2021-11-18::17:40:07/epoch75.pth
+DONE!
+Bast Metric
+acc:	0.7123999999999999
+Final Learning Rate:
+final_lr_0:0.0002500000000000018
+Total Time:3795.530915260315
